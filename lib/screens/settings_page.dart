@@ -238,11 +238,11 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               // Header Section
               Container(
-                padding: const EdgeInsets.fromLTRB(0, 0, 260, 0),
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Text(
                   AppLocalizations.of(context)!.settings,
                   style: AppTheme.heading2,
-                  textAlign: TextAlign.left,
+                  textAlign: TextAlign.center,
                 ),
               ),
 

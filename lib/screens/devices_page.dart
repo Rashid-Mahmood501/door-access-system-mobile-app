@@ -113,9 +113,9 @@ class _DevicesPageState extends State<DevicesPage> {
         children: [
           // Header Section
           Container(
-            padding: const EdgeInsets.fromLTRB(0, 16, 65, 16),
+            padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   AppLocalizations.of(context)!.devices,

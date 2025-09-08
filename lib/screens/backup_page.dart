@@ -178,9 +178,9 @@ class _BackupPageState extends State<BackupPage> {
             children: [
               // Header Section
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 0, 65, 0),
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       AppLocalizations.of(context)!.backup,

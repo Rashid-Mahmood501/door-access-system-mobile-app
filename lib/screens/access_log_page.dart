@@ -189,9 +189,9 @@ class _AccessLogPageState extends State<AccessLogPage> {
             children: [
               // Header Section
               Container(
-                 padding: const EdgeInsets.fromLTRB(0, 16, 110, 0),
+                 padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       AppLocalizations.of(context)!.accessLog,
