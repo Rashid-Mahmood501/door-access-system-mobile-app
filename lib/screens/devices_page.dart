@@ -6,6 +6,7 @@ import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/search_bar.dart';
 import '../models/device.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class DevicesPage extends StatefulWidget {
   const DevicesPage({super.key});
@@ -117,12 +118,12 @@ class _DevicesPageState extends State<DevicesPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Devices',
+                  AppLocalizations.of(context)!.devices,
                   style: AppTheme.heading2,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Manage and monitor access control devices',
+                  AppLocalizations.of(context)!.manageAndMonitorDevices,
                   style: AppTheme.bodyMedium.copyWith(
                     color: AppTheme.mutedForeground,
                   ),
@@ -133,7 +134,7 @@ class _DevicesPageState extends State<DevicesPage> {
 
           // Search Bar
           CustomSearchBar(
-            placeholder: 'Search devices by serial number, model, IP, label, or MAC...',
+            placeholder: AppLocalizations.of(context)!.searchDevices,
             value: _searchController.text,
             onChanged: _filterDevices,
             onClear: () {
@@ -157,8 +158,8 @@ class _DevicesPageState extends State<DevicesPage> {
                         const SizedBox(height: 16),
                         Text(
                           _searchController.text.isEmpty
-                              ? 'No devices found.'
-                              : 'No devices found matching your search.',
+                              ? AppLocalizations.of(context)!.noDevicesFound
+                              : AppLocalizations.of(context)!.noDevicesMatchingSearch,
                           style: AppTheme.bodyLarge.copyWith(
                             color: AppTheme.mutedForeground,
                           ),
@@ -171,7 +172,7 @@ class _DevicesPageState extends State<DevicesPage> {
                     child: Column(
                       children: [
                         CustomCardHeader(
-                          title: 'Device List (${_filteredDevices.length} devices)',
+                          title: '${AppLocalizations.of(context)!.deviceList} (${_filteredDevices.length} ${AppLocalizations.of(context)!.devicesCount})',
                           icon: const Icon(
                             LucideIcons.smartphone,
                             color: AppTheme.accent,
@@ -234,7 +235,7 @@ class _DevicesPageState extends State<DevicesPage> {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  'IP: ${device.ipInfo} • MAC: ${device.macInfo}',
+                  '${AppLocalizations.of(context)!.ip}: ${device.ipInfo} • ${AppLocalizations.of(context)!.mac}: ${device.macInfo}',
                   style: AppTheme.bodySmall,
                 ),
               ],
@@ -264,7 +265,7 @@ class _DevicesPageState extends State<DevicesPage> {
               ),
               const SizedBox(height: 4),
               Text(
-                'Modified: ${DateFormat('MMM dd, yyyy').format(device.lastModified)}',
+                '${AppLocalizations.of(context)!.modified}: ${DateFormat('MMM dd, yyyy').format(device.lastModified)}',
                 style: AppTheme.bodySmall,
               ),
             ],
@@ -281,7 +282,7 @@ class _DevicesPageState extends State<DevicesPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Showing ${(_currentPage - 1) * _itemsPerPage + 1} to ${(_currentPage * _itemsPerPage).clamp(0, _filteredDevices.length)} of ${_filteredDevices.length} devices',
+            '${AppLocalizations.of(context)!.showing} ${(_currentPage - 1) * _itemsPerPage + 1} ${AppLocalizations.of(context)!.to} ${(_currentPage * _itemsPerPage).clamp(0, _filteredDevices.length)} ${AppLocalizations.of(context)!.paginationOf} ${_filteredDevices.length} ${AppLocalizations.of(context)!.devicesCount}',
             style: AppTheme.bodySmall,
           ),
           Row(

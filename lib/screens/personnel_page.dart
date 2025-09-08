@@ -5,6 +5,7 @@ import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/search_bar.dart';
 import '../models/personnel.dart';
+import '../l10n/generated/app_localizations.dart';
 import 'add_personnel_page.dart';
 
 class PersonnelPage extends StatefulWidget {
@@ -119,12 +120,12 @@ class _PersonnelPageState extends State<PersonnelPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Personnel',
+                  AppLocalizations.of(context)!.personnel,
                   style: AppTheme.heading2,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Manage personnel access and permissions',
+                  AppLocalizations.of(context)!.managePersonnel,
                   style: AppTheme.bodyMedium.copyWith(
                     color: AppTheme.mutedForeground,
                   ),
@@ -135,7 +136,7 @@ class _PersonnelPageState extends State<PersonnelPage> {
 
           // Search Bar
           CustomSearchBar(
-            placeholder: 'Search personnel by name or card number...',
+            placeholder: AppLocalizations.of(context)!.searchPersonnel,
             value: _searchController.text,
             onChanged: _filterPersonnel,
             onClear: () {
@@ -153,7 +154,7 @@ class _PersonnelPageState extends State<PersonnelPage> {
                   child: ElevatedButton.icon(
                     onPressed: _navigateToAddPersonnel,
                     icon: const Icon(LucideIcons.userPlus, size: 18),
-                    label: const Text('Add Personnel'),
+                    label: Text(AppLocalizations.of(context)!.addPersonnel),
                   ),
                 ),
               ],
@@ -175,8 +176,8 @@ const SizedBox(height: 8),
                         const SizedBox(height: 16),
                         Text(
                           _searchController.text.isEmpty
-                              ? 'No personnel found.'
-                              : 'No personnel found matching your search.',
+                              ? AppLocalizations.of(context)!.noPersonnelFound
+                              : AppLocalizations.of(context)!.noPersonnelMatchingSearch,
                           style: AppTheme.bodyLarge.copyWith(
                             color: AppTheme.mutedForeground,
                           ),
@@ -189,7 +190,7 @@ const SizedBox(height: 8),
                     child: Column(
                       children: [
                         CustomCardHeader(
-                          title: 'Personnel List (${_filteredPersonnel.length} personnel)',
+                          title: '${AppLocalizations.of(context)!.personnelList} (${_filteredPersonnel.length} ${AppLocalizations.of(context)!.personnelCount})',
                           icon: const Icon(
                             LucideIcons.users,
                             color: AppTheme.accent,

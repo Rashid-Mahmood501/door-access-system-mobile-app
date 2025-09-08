@@ -6,6 +6,7 @@ import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_card.dart';
 import '../models/access_log.dart';
 import '../models/device.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class AccessLogPage extends StatefulWidget {
   const AccessLogPage({super.key});
@@ -188,17 +189,17 @@ class _AccessLogPageState extends State<AccessLogPage> {
             children: [
               // Header Section
               Container(
-                 padding: const EdgeInsets.fromLTRB(0, 16, 65, 0),
+                 padding: const EdgeInsets.fromLTRB(0, 16, 110, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Access Log',
+                      AppLocalizations.of(context)!.accessLog,
                       style: AppTheme.heading2,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'View and monitor access control activities',
+                      AppLocalizations.of(context)!.viewAccessLogs,
                       style: AppTheme.bodyMedium.copyWith(
                         color: AppTheme.mutedForeground,
                       ),

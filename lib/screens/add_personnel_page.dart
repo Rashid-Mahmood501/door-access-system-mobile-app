@@ -6,6 +6,7 @@ import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_card.dart';
 import '../models/personnel.dart';
 import '../models/device.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class AddPersonnelPage extends StatefulWidget {
   final Personnel? personnel;
@@ -188,7 +189,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: widget.personnel != null ? 'Edit Personnel' : 'Add Personnel',
+        title: widget.personnel != null ? AppLocalizations.of(context)!.editPersonnel : AppLocalizations.of(context)!.addPersonnel,
         actions: widget.personnel != null ? [
           IconButton(
             onPressed: _deletePersonnel,
@@ -287,13 +288,13 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                       // Name Field
                       TextFormField(
                         controller: _nameController,
-                        decoration: const InputDecoration(
-                          labelText: 'Name',
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.name,
                           hintText: 'Enter personnel name',
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Name is required';
+                            return AppLocalizations.of(context)!.nameRequired;
                           }
                           return null;
                         },
@@ -303,14 +304,14 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                       // Card Number Field
                       TextFormField(
                         controller: _cardNumberController,
-                        decoration: const InputDecoration(
-                          labelText: 'Card Number',
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.employeeId,
                           hintText: 'Enter card number',
                         ),
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Card number is required';
+                            return AppLocalizations.of(context)!.employeeIdRequired;
                           }
                           return null;
                         },
@@ -320,8 +321,8 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                       // Access Group Field
                       DropdownButtonFormField<String>(
                         value: _selectedAccessGroup,
-                        decoration: const InputDecoration(
-                          labelText: 'Access Group',
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.accessLevel,
                           hintText: 'Select Access Group',
                         ),
                         items: _accessGroups.map((group) {
@@ -357,7 +358,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                             onChanged: (_) => _selectAllDevices(),
                             activeColor: AppTheme.accent,
                           ),
-                          const Text('Select All'),
+                          Text(AppLocalizations.of(context)!.selectAll),
                         ],
                       ),
                       const SizedBox(height: 16),
@@ -406,7 +407,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                       Expanded(
                         child: OutlinedButton(
                           onPressed: _isLoading ? null : () => Navigator.of(context).pop(),
-                          child: const Text('Cancel'),
+                          child: Text(AppLocalizations.of(context)!.cancel),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -431,7 +432,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                                     Text('Saving...'),
                                   ],
                                 )
-                              : Text(widget.personnel != null ? 'Save' : 'Add Personnel'),
+                              : Text(widget.personnel != null ? AppLocalizations.of(context)!.save : AppLocalizations.of(context)!.addPersonnel),
                         ),
                       ),
                     ],

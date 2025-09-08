@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import '../theme/app_theme.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_card.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class BackupPage extends StatefulWidget {
   const BackupPage({super.key});
@@ -35,8 +36,8 @@ class _BackupPageState extends State<BackupPage> {
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Backup created successfully'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.backupCreated),
           backgroundColor: AppTheme.success,
         ),
       );
@@ -182,12 +183,12 @@ class _BackupPageState extends State<BackupPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Backup Management',
+                      AppLocalizations.of(context)!.backup,
                       style: AppTheme.heading2,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'Manage system backups and data recovery',
+                      AppLocalizations.of(context)!.backupAndRestore,
                       style: AppTheme.bodyMedium.copyWith(
                         color: AppTheme.mutedForeground,
                       ),
@@ -282,7 +283,7 @@ class _BackupPageState extends State<BackupPage> {
                                         ),
                                       )
                                     : const Icon(LucideIcons.upload, size: 16),
-                                label: Text(_isRestoring ? 'Restoring...' : 'Restore Backup'),
+                                label: Text(_isRestoring ? 'Restoring...' : AppLocalizations.of(context)!.restoreBackup),
                               ),
                             ),
                           ],
@@ -304,7 +305,7 @@ class _BackupPageState extends State<BackupPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Create Backup',
+                            AppLocalizations.of(context)!.createBackup,
                             style: AppTheme.labelLarge,
                           ),
                           const SizedBox(height: 12),

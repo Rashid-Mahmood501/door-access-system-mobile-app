@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../theme/app_theme.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../widgets/language_selection_cards.dart';
 import 'main_navigation.dart';
 
 class LoginPage extends StatefulWidget {
@@ -38,8 +40,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _saveServerUrl() {
-    // Save the current text from the controller
-    final currentText = _serverUrlController.text;
     setState(() {
       _isEditingServerUrl = false;
       // The text is already in the controller, so we just need to exit edit mode
@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       // Server URL Field
                       Text(
-                        'Server URL',
+                        AppLocalizations.of(context)!.serverUrl,
                         style: AppTheme.labelLarge,
                       ),
                       const SizedBox(height: 8),
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                             controller: _serverUrlController,
                             enabled: _isEditingServerUrl,
                             decoration: InputDecoration(
-                              hintText: 'Enter server URL',
+                              hintText: AppLocalizations.of(context)!.enterServerUrl,
                               contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                               prefixIcon: const Icon(
                                 LucideIcons.server,
@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Server URL is required';
+                                return AppLocalizations.of(context)!.serverUrlRequired;
                               }
                               return null;
                             },
@@ -183,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       // Password Field
                       Text(
-                        'Password',
+                        AppLocalizations.of(context)!.password,
                         style: AppTheme.labelLarge,
                       ),
                       const SizedBox(height: 8),
@@ -191,7 +191,7 @@ class _LoginPageState extends State<LoginPage> {
                         controller: _passwordController,
                         obscureText: _obscurePassword,
                         decoration: InputDecoration(
-                          hintText: 'Enter your password',
+                          hintText: AppLocalizations.of(context)!.enterPassword,
                           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                           prefixIcon: const Icon(
                             LucideIcons.lock,
@@ -209,7 +209,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Password is required';
+                            return AppLocalizations.of(context)!.passwordRequired;
                           }
                           return null;
                         },
@@ -222,7 +222,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: ElevatedButton(
                           onPressed: _isLoading ? null : _handleSignIn,
                           child: _isLoading
-                            ? const Row(
+                            ? Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   SizedBox(
@@ -236,12 +236,16 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ),
                                   SizedBox(width: 12),
-                                  Text('Signing in...'),
+                                  Text(AppLocalizations.of(context)!.signingIn),
                                 ],
                               )
-                            : const Text('Sign In'),
+                            : Text(AppLocalizations.of(context)!.signIn),
                         ),
                       ),
+                      const SizedBox(height: 32),
+                      
+                      // Language Selection Cards
+                      const LanguageSelectionCards(),
                     ],
                   ),
                 ),

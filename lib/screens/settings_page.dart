@@ -3,6 +3,7 @@ import '../theme/app_theme.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_card.dart';
 import '../models/access_config.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -237,10 +238,11 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               // Header Section
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                padding: const EdgeInsets.fromLTRB(0, 0, 260, 0),
                 child: Text(
-                  'Global Access Configuration',
+                  AppLocalizations.of(context)!.settings,
                   style: AppTheme.heading2,
+                  textAlign: TextAlign.left,
                 ),
               ),
 
@@ -298,7 +300,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           Expanded(
                             child: OutlinedButton(
                               onPressed: _hasChanges && !_isSaving ? _cancelChanges : null,
-                              child: const Text('Cancel'),
+                              child: Text(AppLocalizations.of(context)!.cancel),
                             ),
                           ),
                           const SizedBox(width: 16),
@@ -323,7 +325,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                         Text('Save...'),
                                       ],
                                     )
-                                  : const Text('Save'),
+                                  : Text(AppLocalizations.of(context)!.save),
                             ),
                           ),
                         ],

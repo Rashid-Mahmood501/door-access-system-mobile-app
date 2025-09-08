@@ -1,0 +1,331 @@
+{
+  "@@locale": "en",
+  "appTitle": "Door Access System",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login button text"
+  },
+  "logout": "Logout",
+  "@logout": {
+    "description": "Logout button text"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings page title"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language setting label"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language option"
+  },
+  "chineseSimplified": "Chinese (Simplified)",
+  "@chineseSimplified": {
+    "description": "Simplified Chinese language option"
+  },
+  "chineseTraditional": "Chinese (Traditional)",
+  "@chineseTraditional": {
+    "description": "Traditional Chinese language option"
+  },
+  "personnel": "Personnel",
+  "@personnel": {
+    "description": "Personnel page title"
+  },
+  "devices": "Devices",
+  "@devices": {
+    "description": "Devices page title"
+  },
+  "accessLog": "Access Log",
+  "@accessLog": {
+    "description": "Access log page title"
+  },
+  "backup": "Backup",
+  "@backup": {
+    "description": "Backup page title"
+  },
+  "serverUrl": "Server URL",
+  "@serverUrl": {
+    "description": "Server URL field label"
+  },
+  "enterServerUrl": "Enter server URL",
+  "@enterServerUrl": {
+    "description": "Server URL field hint text"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password field label"
+  },
+  "enterPassword": "Enter your password",
+  "@enterPassword": {
+    "description": "Password field hint text"
+  },
+  "signIn": "Sign In",
+  "@signIn": {
+    "description": "Sign in button text"
+  },
+  "signingIn": "Signing in...",
+  "@signingIn": {
+    "description": "Signing in loading text"
+  },
+  "serverUrlRequired": "Server URL is required",
+  "@serverUrlRequired": {
+    "description": "Server URL validation error"
+  },
+  "passwordRequired": "Password is required",
+  "@passwordRequired": {
+    "description": "Password validation error"
+  },
+  "selectLanguage": "Select Language",
+  "@selectLanguage": {
+    "description": "Language selection section title"
+  },
+  "manageAndMonitorDevices": "Manage and monitor access control devices",
+  "@manageAndMonitorDevices": {
+    "description": "Devices page subtitle"
+  },
+  "searchDevices": "Search devices by serial number, model, IP, label, or MAC...",
+  "@searchDevices": {
+    "description": "Devices search placeholder"
+  },
+  "noDevicesFound": "No devices found.",
+  "@noDevicesFound": {
+    "description": "No devices message"
+  },
+  "noDevicesMatchingSearch": "No devices found matching your search.",
+  "@noDevicesMatchingSearch": {
+    "description": "No devices matching search message"
+  },
+  "deviceList": "Device List",
+  "@deviceList": {
+    "description": "Device list header"
+  },
+  "devicesCount": "devices",
+  "@devicesCount": {
+    "description": "Devices count label"
+  },
+  "ip": "IP",
+  "@ip": {
+    "description": "IP address label"
+  },
+  "mac": "MAC",
+  "@mac": {
+    "description": "MAC address label"
+  },
+  "modified": "Modified",
+  "@modified": {
+    "description": "Last modified label"
+  },
+  "showing": "Showing",
+  "@showing": {
+    "description": "Pagination showing label"
+  },
+  "to": "to",
+  "@to": {
+    "description": "Pagination to label"
+  },
+  "paginationOf": "of",
+  "@paginationOf": {
+    "description": "Pagination of label"
+  },
+  "managePersonnel": "Manage personnel and access permissions",
+  "@managePersonnel": {
+    "description": "Personnel page subtitle"
+  },
+  "searchPersonnel": "Search personnel by name, ID, or department...",
+  "@searchPersonnel": {
+    "description": "Personnel search placeholder"
+  },
+  "noPersonnelFound": "No personnel found.",
+  "@noPersonnelFound": {
+    "description": "No personnel message"
+  },
+  "noPersonnelMatchingSearch": "No personnel found matching your search.",
+  "@noPersonnelMatchingSearch": {
+    "description": "No personnel matching search message"
+  },
+  "personnelList": "Personnel List",
+  "@personnelList": {
+    "description": "Personnel list header"
+  },
+  "personnelCount": "personnel",
+  "@personnelCount": {
+    "description": "Personnel count label"
+  },
+  "addPersonnel": "Add Personnel",
+  "@addPersonnel": {
+    "description": "Add personnel button"
+  },
+  "editPersonnel": "Edit Personnel",
+  "@editPersonnel": {
+    "description": "Edit personnel button"
+  },
+  "name": "Name",
+  "@name": {
+    "description": "Name field label"
+  },
+  "employeeId": "Employee ID",
+  "@employeeId": {
+    "description": "Employee ID field label"
+  },
+  "department": "Department",
+  "@department": {
+    "description": "Department field label"
+  },
+  "position": "Position",
+  "@position": {
+    "description": "Position field label"
+  },
+  "phone": "Phone",
+  "@phone": {
+    "description": "Phone field label"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email field label"
+  },
+  "accessLevel": "Access Level",
+  "@accessLevel": {
+    "description": "Access level field label"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "nameRequired": "Name is required",
+  "@nameRequired": {
+    "description": "Name validation error"
+  },
+  "employeeIdRequired": "Employee ID is required",
+  "@employeeIdRequired": {
+    "description": "Employee ID validation error"
+  },
+  "departmentRequired": "Department is required",
+  "@departmentRequired": {
+    "description": "Department validation error"
+  },
+  "positionRequired": "Position is required",
+  "@positionRequired": {
+    "description": "Position validation error"
+  },
+  "phoneRequired": "Phone is required",
+  "@phoneRequired": {
+    "description": "Phone validation error"
+  },
+  "emailRequired": "Email is required",
+  "@emailRequired": {
+    "description": "Email validation error"
+  },
+  "accessLevelRequired": "Access level is required",
+  "@accessLevelRequired": {
+    "description": "Access level validation error"
+  },
+  "viewAccessLogs": "View access logs and security events",
+  "@viewAccessLogs": {
+    "description": "Access log page subtitle"
+  },
+  "searchLogs": "Search logs by personnel, device, or event...",
+  "@searchLogs": {
+    "description": "Access log search placeholder"
+  },
+  "noLogsFound": "No access logs found.",
+  "@noLogsFound": {
+    "description": "No logs message"
+  },
+  "noLogsMatchingSearch": "No logs found matching your search.",
+  "@noLogsMatchingSearch": {
+    "description": "No logs matching search message"
+  },
+  "accessLogList": "Access Log List",
+  "@accessLogList": {
+    "description": "Access log list header"
+  },
+  "logs": "logs",
+  "@logs": {
+    "description": "Logs count label"
+  },
+  "event": "Event",
+  "@event": {
+    "description": "Event label"
+  },
+  "time": "Time",
+  "@time": {
+    "description": "Time label"
+  },
+  "device": "Device",
+  "@device": {
+    "description": "Device label"
+  },
+  "granted": "Granted",
+  "@granted": {
+    "description": "Access granted status"
+  },
+  "denied": "Denied",
+  "@denied": {
+    "description": "Access denied status"
+  },
+  "backupAndRestore": "Backup and restore system data",
+  "@backupAndRestore": {
+    "description": "Backup page subtitle"
+  },
+  "createBackup": "Create Backup",
+  "@createBackup": {
+    "description": "Create backup button"
+  },
+  "restoreBackup": "Restore Backup",
+  "@restoreBackup": {
+    "description": "Restore backup button"
+  },
+  "backupCreated": "Backup created successfully",
+  "@backupCreated": {
+    "description": "Backup success message"
+  },
+  "backupRestored": "Backup restored successfully",
+  "@backupRestored": {
+    "description": "Restore success message"
+  },
+  "appSettings": "Configure application settings",
+  "@appSettings": {
+    "description": "Settings page subtitle"
+  },
+  "general": "General",
+  "@general": {
+    "description": "General settings section"
+  },
+  "security": "Security",
+  "@security": {
+    "description": "Security settings section"
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Notifications settings section"
+  },
+  "about": "About",
+  "@about": {
+    "description": "About section"
+  },
+  "version": "Version",
+  "@version": {
+    "description": "Version label"
+  },
+  "build": "Build",
+  "@build": {
+    "description": "Build label"
+  },
+  "selectAll": "Select All",
+  "@selectAll": {
+    "description": "Select all checkbox label"
+  }
+}
