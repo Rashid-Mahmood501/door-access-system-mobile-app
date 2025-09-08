@@ -231,55 +231,54 @@ class _SettingsPageState extends State<SettingsPage> {
         decoration: const BoxDecoration(
           gradient: AppTheme.backgroundGradient,
         ),
-        child: Column(
-          children: [
-            // Header Section
-            Container(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Global Access Configuration',
-                    style: AppTheme.heading2,
-                  ),
-                ],
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
+          child: Column(
+            children: [
+              // Header Section
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: Text(
+                  'Global Access Configuration',
+                  style: AppTheme.heading2,
+                ),
               ),
-            ),
 
-            // Configuration Table
-            Expanded(
-              child: CustomCard(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
+              const SizedBox(height: 16),
+
+              // Configuration Table
+              CustomCard(
+                margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                 child: Column(
                   children: [
-                    // Table Header
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: AppTheme.background,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
-                        ),
-                        border: Border.all(color: AppTheme.border),
-                      ),
-                      child: _buildTableHeader(),
-                    ),
+                    // Scrollable Table Content
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Column(
+                        children: [
+                          // Table Header
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: AppTheme.background,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(12),
+                                topRight: Radius.circular(12),
+                              ),
+                              border: Border.all(color: AppTheme.border),
+                            ),
+                            child: _buildTableHeader(),
+                          ),
 
-                    // Table Body
-                    Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: SingleChildScrollView(
-                          child: Column(
+                          // Table Body
+                          Column(
                             children: _accessConfigs.asMap().entries.map((entry) {
                               final index = entry.key;
                               final config = entry.value;
                               return _buildTableRow(index, config);
                             }).toList(),
                           ),
-                        ),
+                        ],
                       ),
                     ),
 
@@ -333,8 +332,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -357,7 +356,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
         // Access Group column
         SizedBox(
-          width: 120,
+          width: 100,
           child: Text(
             'Access Group',
             style: AppTheme.labelMedium.copyWith(
@@ -372,9 +371,9 @@ class _SettingsPageState extends State<SettingsPage> {
           return Row(
             children: [
               SizedBox(
-                width: 100,
+                width: 80,
                 child: Text(
-                  'Time Slot ${index + 1}',
+                  'Time ${index + 1}',
                   style: AppTheme.labelMedium.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -390,9 +389,9 @@ class _SettingsPageState extends State<SettingsPage> {
           return Row(
             children: [
               SizedBox(
-                width: 50,
+                width: 40,
                 child: Text(
-                  day,
+                  day.substring(0, 3),
                   style: AppTheme.labelMedium.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -432,7 +431,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
           // Access Group column
           SizedBox(
-            width: 120,
+            width: 100,
             child: config.isEditable
                 ? TextFormField(
                     initialValue: config.accessGroup,
@@ -457,7 +456,7 @@ class _SettingsPageState extends State<SettingsPage> {
             return Row(
               children: [
                 SizedBox(
-                  width: 100,
+                  width: 80,
                   child: config.isEditable
                       ? Row(
                           children: [
@@ -515,7 +514,7 @@ class _SettingsPageState extends State<SettingsPage> {
             return Row(
               children: [
                 SizedBox(
-                  width: 50,
+                  width: 40,
                   child: Checkbox(
                     value: config.dayAccess[day] ?? false,
                     onChanged: config.isEditable
