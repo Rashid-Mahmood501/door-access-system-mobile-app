@@ -114,7 +114,7 @@ class _PersonnelPageState extends State<PersonnelPage> {
         children: [
           // Header Section
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.fromLTRB(0, 16, 65, 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -133,32 +133,33 @@ class _PersonnelPageState extends State<PersonnelPage> {
             ),
           ),
 
-          // Add Button and Search Bar
+          // Search Bar
+          CustomSearchBar(
+            placeholder: 'Search personnel by name or card number...',
+            value: _searchController.text,
+            onChanged: _filterPersonnel,
+            onClear: () {
+              _searchController.clear();
+              _filterPersonnel('');
+            },
+          ),
+
+          // Add Button
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
               children: [
                 Expanded(
-                  child: CustomSearchBar(
-                    placeholder: 'Search personnel by name or card number...',
-                    value: _searchController.text,
-                    onChanged: _filterPersonnel,
-                    onClear: () {
-                      _searchController.clear();
-                      _filterPersonnel('');
-                    },
+                  child: ElevatedButton.icon(
+                    onPressed: _navigateToAddPersonnel,
+                    icon: const Icon(LucideIcons.userPlus, size: 18),
+                    label: const Text('Add Personnel'),
                   ),
-                ),
-                const SizedBox(width: 12),
-                ElevatedButton.icon(
-                  onPressed: _navigateToAddPersonnel,
-                  icon: const Icon(LucideIcons.userPlus, size: 18),
-                  label: const Text('Add Personnel'),
                 ),
               ],
             ),
           ),
-
+const SizedBox(height: 8),
           // Personnel List
           Expanded(
             child: _filteredPersonnel.isEmpty
@@ -184,7 +185,7 @@ class _PersonnelPageState extends State<PersonnelPage> {
                     ),
                   )
                 : CustomCard(
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
+                    margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                     child: Column(
                       children: [
                         CustomCardHeader(

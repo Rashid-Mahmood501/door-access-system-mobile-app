@@ -204,7 +204,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -399,40 +399,43 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                 const SizedBox(height: 24),
 
                 // Action Buttons
-                Row(
-                  children: [
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: _isLoading ? null : () => Navigator.of(context).pop(),
-                        child: const Text('Cancel'),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: _isLoading ? null : () => Navigator.of(context).pop(),
+                          child: const Text('Cancel'),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: _isLoading ? null : _savePersonnel,
-                        child: _isLoading
-                            ? const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: 16,
-                                    height: 16,
-                                    child: CircularProgressIndicator(
-                                      strokeWidth: 2,
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        AppTheme.accentForeground,
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: _isLoading ? null : _savePersonnel,
+                          child: _isLoading
+                              ? const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 16,
+                                      height: 16,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                          AppTheme.accentForeground,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Text('Saving...'),
-                                ],
-                              )
-                            : Text(widget.personnel != null ? 'Save' : 'Add Personnel'),
+                                    SizedBox(width: 8),
+                                    Text('Saving...'),
+                                  ],
+                                )
+                              : Text(widget.personnel != null ? 'Save' : 'Add Personnel'),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
