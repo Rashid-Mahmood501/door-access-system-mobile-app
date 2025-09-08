@@ -178,248 +178,255 @@ class _AccessLogPageState extends State<AccessLogPage> {
         title: 'Access Control System',
         onLogout: null, // Add logout functionality
       ),
-      body: Column(
-        children: [
-          // Header Section
-          Container(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Access Log',
-                  style: AppTheme.heading2,
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  'View and monitor access control activities',
-                  style: AppTheme.bodyMedium.copyWith(
-                    color: AppTheme.mutedForeground,
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          // Export Button
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    onPressed: _exportLogs,
-                    icon: const Icon(LucideIcons.download, size: 18),
-                    label: const Text('Export Logs'),
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          const SizedBox(height: 16),
-
-          // Filters Card
-          CustomCard(
-            child: Column(
-              children: [
-                const CustomCardHeader(
-                  title: 'Filters',
-                  icon: Icon(LucideIcons.filter, color: AppTheme.accent),
-                ),
-                
-                // Filter Fields Grid
-                Column(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: AppTheme.backgroundGradient,
+        ),
+        child: SingleChildScrollView(
+          // padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
+          child: Column(
+            children: [
+              // Header Section
+              Container(
+                 padding: const EdgeInsets.fromLTRB(0, 16, 65, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Device Selection
-                    DropdownButtonFormField<String>(
-                      value: _selectedDeviceId,
-                      decoration: const InputDecoration(
-                        labelText: 'Device (SN)',
-                        hintText: 'All devices',
-                      ),
-                      items: [
-                        const DropdownMenuItem(
-                          value: 'all',
-                          child: Text('All devices'),
-                        ),
-                        ..._devices.map((device) {
-                          return DropdownMenuItem(
-                            value: device.id,
-                            child: Text('${device.displayName} (${device.serialInfo})'),
-                          );
-                        }).toList(),
-                      ],
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedDeviceId = value;
-                        });
-                        _applyFilters();
-                      },
+                    Text(
+                      'Access Log',
+                      style: AppTheme.heading2,
                     ),
-                    const SizedBox(height: 16),
-
-                    // Personnel Name
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: 'Personnel Name',
-                        hintText: 'Search by name...',
+                    const SizedBox(height: 4),
+                    Text(
+                      'View and monitor access control activities',
+                      style: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.mutedForeground,
                       ),
-                      onChanged: (value) {
-                        setState(() {
-                          _personnelName = value;
-                        });
-                        _applyFilters();
-                      },
                     ),
-                    const SizedBox(height: 16),
+                  ],
+                ),
+              ),
 
-                    // Date Range
-                    Row(
+              const SizedBox(height: 16),
+
+              // Export Button
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton.icon(
+                        onPressed: _exportLogs,
+                        icon: const Icon(LucideIcons.download, size: 18),
+                        label: const Text('Export Logs'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // Filters Card
+              CustomCard(
+                margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
+                child: Column(
+                  children: [
+                    const CustomCardHeader(
+                      title: 'Filters',
+                      icon: Icon(LucideIcons.filter, color: AppTheme.accent),
+                    ),
+                    
+                    // Filter Fields
+                    Column(
                       children: [
-                        Expanded(
-                          child: InkWell(
-                            onTap: () async {
-                              final date = await showDatePicker(
-                                context: context,
-                                initialDate: _fromDate ?? DateTime.now(),
-                                firstDate: DateTime(2020),
-                                lastDate: DateTime.now(),
+                        // Device Selection
+                        DropdownButtonFormField<String>(
+                          value: _selectedDeviceId,
+                          decoration: const InputDecoration(
+                            labelText: 'Device (SN)',
+                            hintText: 'All devices',
+                          ),
+                          items: [
+                            const DropdownMenuItem(
+                              value: 'all',
+                              child: Text('All devices'),
+                            ),
+                            ..._devices.map((device) {
+                              return DropdownMenuItem(
+                                value: device.id,
+                                child: Text('${device.displayName} (${device.serialInfo})'),
                               );
-                              if (date != null) {
-                                setState(() {
-                                  _fromDate = date;
-                                });
-                                _applyFilters();
-                              }
-                            },
-                            child: InputDecorator(
-                              decoration: const InputDecoration(
-                                labelText: 'From Date',
-                                hintText: 'Select from date',
-                              ),
-                              child: Text(
-                                _fromDate != null
-                                    ? DateFormat('MMM dd, yyyy').format(_fromDate!)
-                                    : 'Select from date',
-                                style: _fromDate != null
-                                    ? AppTheme.bodyMedium
-                                    : AppTheme.bodyMedium.copyWith(
-                                        color: AppTheme.mutedForeground,
-                                      ),
-                              ),
+                            }).toList(),
+                          ],
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedDeviceId = value;
+                            });
+                            _applyFilters();
+                          },
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Personnel Name
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Personnel Name',
+                            hintText: 'Search by name...',
+                          ),
+                          onChanged: (value) {
+                            setState(() {
+                              _personnelName = value;
+                            });
+                            _applyFilters();
+                          },
+                        ),
+                        const SizedBox(height: 16),
+
+                        // From Date
+                        InkWell(
+                          onTap: () async {
+                            final date = await showDatePicker(
+                              context: context,
+                              initialDate: _fromDate ?? DateTime.now(),
+                              firstDate: DateTime(2020),
+                              lastDate: DateTime.now(),
+                            );
+                            if (date != null) {
+                              setState(() {
+                                _fromDate = date;
+                              });
+                              _applyFilters();
+                            }
+                          },
+                          child: InputDecorator(
+                            decoration: const InputDecoration(
+                              labelText: 'From Date',
+                              hintText: 'Select from date',
+                            ),
+                            child: Text(
+                              _fromDate != null
+                                  ? DateFormat('MMM dd, yyyy').format(_fromDate!)
+                                  : 'Select from date',
+                              style: _fromDate != null
+                                  ? AppTheme.bodyMedium
+                                  : AppTheme.bodyMedium.copyWith(
+                                      color: AppTheme.mutedForeground,
+                                    ),
                             ),
                           ),
                         ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: InkWell(
-                            onTap: () async {
-                              final date = await showDatePicker(
-                                context: context,
-                                initialDate: _toDate ?? DateTime.now(),
-                                firstDate: _fromDate ?? DateTime(2020),
-                                lastDate: DateTime.now(),
-                              );
-                              if (date != null) {
-                                setState(() {
-                                  _toDate = date;
-                                });
-                                _applyFilters();
-                              }
-                            },
-                            child: InputDecorator(
-                              decoration: const InputDecoration(
-                                labelText: 'To Date',
-                                hintText: 'Select to date',
-                              ),
-                              child: Text(
-                                _toDate != null
-                                    ? DateFormat('MMM dd, yyyy').format(_toDate!)
-                                    : 'Select to date',
-                                style: _toDate != null
-                                    ? AppTheme.bodyMedium
-                                    : AppTheme.bodyMedium.copyWith(
-                                        color: AppTheme.mutedForeground,
-                                      ),
-                              ),
+                        const SizedBox(height: 16),
+
+                        // To Date
+                        InkWell(
+                          onTap: () async {
+                            final date = await showDatePicker(
+                              context: context,
+                              initialDate: _toDate ?? DateTime.now(),
+                              firstDate: _fromDate ?? DateTime(2020),
+                              lastDate: DateTime.now(),
+                            );
+                            if (date != null) {
+                              setState(() {
+                                _toDate = date;
+                              });
+                              _applyFilters();
+                            }
+                          },
+                          child: InputDecorator(
+                            decoration: const InputDecoration(
+                              labelText: 'To Date',
+                              hintText: 'Select to date',
+                            ),
+                            child: Text(
+                              _toDate != null
+                                  ? DateFormat('MMM dd, yyyy').format(_toDate!)
+                                  : 'Select to date',
+                              style: _toDate != null
+                                  ? AppTheme.bodyMedium
+                                  : AppTheme.bodyMedium.copyWith(
+                                      color: AppTheme.mutedForeground,
+                                    ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
-                    // Filter Actions
-                    Row(
-                      children: [
-                        Expanded(
-                          child: OutlinedButton.icon(
-                            onPressed: _applyFilters,
-                            icon: const Icon(LucideIcons.filter, size: 16),
-                            label: const Text('Apply Filters'),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: OutlinedButton.icon(
-                            onPressed: _clearFilters,
-                            icon: const Icon(LucideIcons.x, size: 16),
-                            label: const Text('Clear Filters'),
-                          ),
+                        // Filter Actions
+                        Row(
+                          children: [
+                            Expanded(
+                              child: OutlinedButton.icon(
+                                onPressed: _applyFilters,
+                                icon: const Icon(LucideIcons.filter, size: 16),
+                                label: const Text('Apply Filters'),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: OutlinedButton.icon(
+                                onPressed: _clearFilters,
+                                icon: const Icon(LucideIcons.x, size: 16),
+                                label: const Text('Clear Filters'),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
+              ),
 
-          // Access Logs List
-          Expanded(
-            child: _filteredLogs.isEmpty
-                ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          LucideIcons.fileText,
-                          size: 64,
-                          color: AppTheme.mutedForeground,
+              // Access Logs List
+              _filteredLogs.isEmpty
+                  ? Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 12),
+                      child: CustomCard(
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 32),
+                            const Icon(
+                              LucideIcons.fileText,
+                              size: 64,
+                              color: AppTheme.mutedForeground,
+                            ),
+                            const SizedBox(height: 16),
+                            Text(
+                              'No access logs found',
+                              style: AppTheme.bodyLarge.copyWith(
+                                color: AppTheme.mutedForeground,
+                              ),
+                            ),
+                            const SizedBox(height: 32),
+                          ],
                         ),
-                        const SizedBox(height: 16),
-                        Text(
-                          'No access logs found',
-                          style: AppTheme.bodyLarge.copyWith(
-                            color: AppTheme.mutedForeground,
+                      ),
+                    )
+                  : CustomCard(
+                      margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
+                      child: Column(
+                        children: [
+                          const CustomCardHeader(
+                            title: 'Access Logs',
+                            icon: Icon(LucideIcons.fileText, color: AppTheme.accent),
                           ),
-                        ),
-                      ],
-                    ),
-                  )
-                : CustomCard(
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Column(
-                      children: [
-                        const CustomCardHeader(
-                          title: 'Access Logs',
-                          icon: Icon(LucideIcons.fileText, color: AppTheme.accent),
-                        ),
-                        Expanded(
-                          child: ListView.builder(
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: _filteredLogs.length,
                             itemBuilder: (context, index) {
                               final log = _filteredLogs[index];
                               return _buildLogItem(log);
                             },
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
