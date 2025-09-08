@@ -107,7 +107,7 @@ class _PersonnelPageState extends State<PersonnelPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: 'Access Control System',
+        imagePath: 'Assets/hkezit-logo.png',
         onLogout: null, // Add logout functionality
       ),
       body: Column(

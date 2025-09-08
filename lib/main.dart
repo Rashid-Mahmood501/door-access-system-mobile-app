@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Door Access Control System',
+      title: 'Door Access Mobile App',
       theme: AppTheme.darkTheme,
       home: const LoginPage(),
       debugShowCheckedModeBanner: false,

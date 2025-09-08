@@ -105,7 +105,7 @@ class _DevicesPageState extends State<DevicesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: 'Access Control System',
+        imagePath: 'Assets/hkezit-logo.png',
         onLogout: null,
       ),
       body: Column(

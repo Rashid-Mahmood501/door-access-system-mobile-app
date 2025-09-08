@@ -103,24 +103,10 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       // Logo/Title
-                      const Icon(
-                        LucideIcons.shield,
-                        size: 80,
-                        color: AppTheme.accent,
-                      ),
-                      const SizedBox(height: 24),
-                      Text(
-                        'Access Control System',
-                        style: AppTheme.heading1,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        'Sign in to continue',
-                        style: AppTheme.bodyLarge.copyWith(
-                          color: AppTheme.mutedForeground,
-                        ),
-                        textAlign: TextAlign.center,
+                      Image.asset(
+                        'Assets/hkezit-logo.png',
+                        height: 60,
+                        fit: BoxFit.contain,
                       ),
                       const SizedBox(height: 48),
 
@@ -137,6 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                             enabled: _isEditingServerUrl,
                             decoration: InputDecoration(
                               hintText: 'Enter server URL',
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                               prefixIcon: const Icon(
                                 LucideIcons.server,
                                 color: AppTheme.mutedForeground,
@@ -205,6 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: _obscurePassword,
                         decoration: InputDecoration(
                           hintText: 'Enter your password',
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                           prefixIcon: const Icon(
                             LucideIcons.lock,
                             color: AppTheme.mutedForeground,
@@ -229,9 +217,11 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 32),
 
                       // Sign In Button
-                      ElevatedButton(
-                        onPressed: _isLoading ? null : _handleSignIn,
-                        child: _isLoading
+                      SizedBox(
+                        height: 50,
+                        child: ElevatedButton(
+                          onPressed: _isLoading ? null : _handleSignIn,
+                          child: _isLoading
                             ? const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -250,6 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ],
                               )
                             : const Text('Sign In'),
+                        ),
                       ),
                     ],
                   ),

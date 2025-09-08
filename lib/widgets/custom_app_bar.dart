@@ -3,13 +3,15 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../theme/app_theme.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final String? title;
+  final String? imagePath;
   final List<Widget>? actions;
   final VoidCallback? onLogout;
 
   const CustomAppBar({
     super.key,
-    required this.title,
+    this.title,
+    this.imagePath,
     this.actions,
     this.onLogout,
   });
@@ -17,10 +19,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
-        title,
-        style: AppTheme.heading3,
-      ),
+      title: imagePath != null
+          ? Image.asset(
+              imagePath!,
+              height: 32,
+              fit: BoxFit.contain,
+            )
+          : Text(
+              title ?? '',
+              style: AppTheme.heading3,
+            ),
       actions: [
         if (onLogout != null) ...[
           IconButton(
