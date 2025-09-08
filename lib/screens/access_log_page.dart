@@ -188,7 +188,7 @@ class _AccessLogPageState extends State<AccessLogPage> {
             children: [
               // Header Section
               Container(
-                 padding: const EdgeInsets.fromLTRB(0, 16, 65, 16),
+                 padding: const EdgeInsets.fromLTRB(0, 16, 65, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -171,32 +171,36 @@ class _BackupPageState extends State<BackupPage> {
           gradient: AppTheme.backgroundGradient,
         ),
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Header Section
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Backup Management',
-                    style: AppTheme.heading2,
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Manage system backups and data recovery',
-                    style: AppTheme.bodyMedium.copyWith(
-                      color: AppTheme.mutedForeground,
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 0, 65, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Backup Management',
+                      style: AppTheme.heading2,
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 4),
+                    Text(
+                      'Manage system backups and data recovery',
+                      style: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.mutedForeground,
+                      ),
+                    ),
+                  ],
+                ),
               ),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
 
               // Actions Card
               CustomCard(
+                margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                 child: Column(
                   children: [
                     const CustomCardHeader(
@@ -330,10 +334,9 @@ class _BackupPageState extends State<BackupPage> {
                 ),
               ),
 
-              const SizedBox(height: 16),
-
               // Configuration Card
               CustomCard(
+                margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                 child: Column(
                   children: [
                     const CustomCardHeader(
