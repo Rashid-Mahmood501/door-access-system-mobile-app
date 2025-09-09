@@ -489,11 +489,11 @@ abstract class AppLocalizations {
   /// **'Event'**
   String get event;
 
-  /// Time label
+  /// Time slot column header
   ///
   /// In en, this message translates to:
-  /// **'Time'**
-  String get time;
+  /// **'Time {number}'**
+  String time(int number);
 
   /// Device label
   ///
@@ -590,6 +590,408 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select All'**
   String get selectAll;
+
+  /// Photo section header
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get photo;
+
+  /// Update image button text
+  ///
+  /// In en, this message translates to:
+  /// **'Update Image'**
+  String get updateImage;
+
+  /// Add photo button text
+  ///
+  /// In en, this message translates to:
+  /// **'Add Photo'**
+  String get addPhoto;
+
+  /// Basic information section header
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Information'**
+  String get basicInformation;
+
+  /// Name field hint text
+  ///
+  /// In en, this message translates to:
+  /// **'Enter personnel name'**
+  String get enterPersonnelName;
+
+  /// Card number field hint text
+  ///
+  /// In en, this message translates to:
+  /// **'Enter card number'**
+  String get enterCardNumber;
+
+  /// Access group dropdown hint text
+  ///
+  /// In en, this message translates to:
+  /// **'Select Access Group'**
+  String get selectAccessGroup;
+
+  /// Device mapping section header
+  ///
+  /// In en, this message translates to:
+  /// **'Device Mapping'**
+  String get deviceMapping;
+
+  /// Saving loading text
+  ///
+  /// In en, this message translates to:
+  /// **'Save...'**
+  String get saving;
+
+  /// Delete confirmation dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Delete'**
+  String get confirmDelete;
+
+  /// Delete confirmation dialog message
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this personnel? This action cannot be undone.'**
+  String get deletePersonnelConfirm;
+
+  /// Delete button text
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// Personnel update success message
+  ///
+  /// In en, this message translates to:
+  /// **'Personnel updated successfully'**
+  String get personnelUpdatedSuccessfully;
+
+  /// Personnel add success message
+  ///
+  /// In en, this message translates to:
+  /// **'Personnel added successfully'**
+  String get personnelAddedSuccessfully;
+
+  /// Image picker error message
+  ///
+  /// In en, this message translates to:
+  /// **'Error picking image: {error}'**
+  String errorPickingImage(String error);
+
+  /// Admin access group
+  ///
+  /// In en, this message translates to:
+  /// **'Admin'**
+  String get admin;
+
+  /// Employee access group
+  ///
+  /// In en, this message translates to:
+  /// **'Employee'**
+  String get employee;
+
+  /// Guest access group
+  ///
+  /// In en, this message translates to:
+  /// **'Guest'**
+  String get guest;
+
+  /// Export logs button text
+  ///
+  /// In en, this message translates to:
+  /// **'Export Logs'**
+  String get exportLogs;
+
+  /// Filters section header
+  ///
+  /// In en, this message translates to:
+  /// **'Filters'**
+  String get filters;
+
+  /// Device selection label
+  ///
+  /// In en, this message translates to:
+  /// **'Device (SN)'**
+  String get deviceSn;
+
+  /// All devices option
+  ///
+  /// In en, this message translates to:
+  /// **'All devices'**
+  String get allDevices;
+
+  /// Personnel name field label
+  ///
+  /// In en, this message translates to:
+  /// **'Personnel Name'**
+  String get personnelName;
+
+  /// Personnel name search hint
+  ///
+  /// In en, this message translates to:
+  /// **'Search by name...'**
+  String get searchByName;
+
+  /// From date field label
+  ///
+  /// In en, this message translates to:
+  /// **'From Date'**
+  String get fromDate;
+
+  /// From date selection hint
+  ///
+  /// In en, this message translates to:
+  /// **'Select from date'**
+  String get selectFromDate;
+
+  /// To date field label
+  ///
+  /// In en, this message translates to:
+  /// **'To Date'**
+  String get toDate;
+
+  /// To date selection hint
+  ///
+  /// In en, this message translates to:
+  /// **'Select to date'**
+  String get selectToDate;
+
+  /// Apply filters button text
+  ///
+  /// In en, this message translates to:
+  /// **'Apply Filters'**
+  String get applyFilters;
+
+  /// Clear filters button text
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filters'**
+  String get clearFilters;
+
+  /// No access logs message
+  ///
+  /// In en, this message translates to:
+  /// **'No access logs found'**
+  String get noAccessLogsFound;
+
+  /// Access logs list header
+  ///
+  /// In en, this message translates to:
+  /// **'Access Logs'**
+  String get accessLogs;
+
+  /// Export progress message
+  ///
+  /// In en, this message translates to:
+  /// **'Exporting access logs...'**
+  String get exportingAccessLogs;
+
+  /// Export success message
+  ///
+  /// In en, this message translates to:
+  /// **'Access logs exported as access-logs-{date}.csv'**
+  String accessLogsExported(String date);
+
+  /// Entry direction label
+  ///
+  /// In en, this message translates to:
+  /// **'Entry'**
+  String get entry;
+
+  /// Exit direction label
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
+
+  /// Backup file selection error message
+  ///
+  /// In en, this message translates to:
+  /// **'Error selecting backup file: {error}'**
+  String errorSelectingBackupFile(String error);
+
+  /// Backup file selection required message
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a backup file first'**
+  String get pleaseSelectBackupFile;
+
+  /// Restore confirmation dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Restore'**
+  String get confirmRestore;
+
+  /// Restore confirmation dialog message
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to restore from the uploaded backup file? This action will overwrite current data and cannot be undone.'**
+  String get confirmRestoreMessage;
+
+  /// Confirm restore button text
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Restore'**
+  String get confirmRestoreButton;
+
+  /// Configuration save success message
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration saved successfully'**
+  String get configurationSavedSuccessfully;
+
+  /// Actions section header
+  ///
+  /// In en, this message translates to:
+  /// **'Actions'**
+  String get actions;
+
+  /// Restore section title
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from Backup'**
+  String get restoreFromBackup;
+
+  /// Upload backup file button text
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Backup File'**
+  String get uploadBackupFile;
+
+  /// Restoring loading text
+  ///
+  /// In en, this message translates to:
+  /// **'Restoring...'**
+  String get restoring;
+
+  /// Creating backup loading text
+  ///
+  /// In en, this message translates to:
+  /// **'Creating Backup...'**
+  String get creatingBackup;
+
+  /// Backup now button text
+  ///
+  /// In en, this message translates to:
+  /// **'Backup Now'**
+  String get backupNow;
+
+  /// Configuration section header
+  ///
+  /// In en, this message translates to:
+  /// **'Configuration'**
+  String get configuration;
+
+  /// Enable daily backup checkbox label
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Daily Backup'**
+  String get enableDailyBackup;
+
+  /// Backup time field label
+  ///
+  /// In en, this message translates to:
+  /// **'Backup Time (24H)'**
+  String get backupTime24h;
+
+  /// Backup path field label
+  ///
+  /// In en, this message translates to:
+  /// **'Backup Path'**
+  String get backupPath;
+
+  /// Backup path field hint
+  ///
+  /// In en, this message translates to:
+  /// **'/backups/system'**
+  String get backupPathHint;
+
+  /// Save configuration button text
+  ///
+  /// In en, this message translates to:
+  /// **'Save Configuration'**
+  String get saveConfiguration;
+
+  /// Save configuration loading text
+  ///
+  /// In en, this message translates to:
+  /// **'Save Configuration...'**
+  String get saveConfigurationLoading;
+
+  /// Number column header
+  ///
+  /// In en, this message translates to:
+  /// **'NO.'**
+  String get no;
+
+  /// Access group column header
+  ///
+  /// In en, this message translates to:
+  /// **'Access Group'**
+  String get accessGroup;
+
+  /// Sunday abbreviation
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get sunday;
+
+  /// Monday abbreviation
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get monday;
+
+  /// Tuesday abbreviation
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get tuesday;
+
+  /// Wednesday abbreviation
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get wednesday;
+
+  /// Thursday abbreviation
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get thursday;
+
+  /// Friday abbreviation
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get friday;
+
+  /// Saturday abbreviation
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get saturday;
+
+  /// Time format hint
+  ///
+  /// In en, this message translates to:
+  /// **'HH:MM'**
+  String get hhmm;
+
+  /// Contractor access group
+  ///
+  /// In en, this message translates to:
+  /// **'Contractor'**
+  String get contractor;
+
+  /// Visitor access group
+  ///
+  /// In en, this message translates to:
+  /// **'Visitor'**
+  String get visitor;
 }
 
 class _AppLocalizationsDelegate

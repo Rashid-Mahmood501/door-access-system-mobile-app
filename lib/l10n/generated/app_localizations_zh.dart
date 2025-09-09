@@ -204,7 +204,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get event => '事件';
 
   @override
-  String get time => '时间';
+  String time(int number) {
+    return '时间 $number';
+  }
 
   @override
   String get device => '设备';
@@ -253,6 +255,213 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get selectAll => '全选';
+
+  @override
+  String get photo => '照片';
+
+  @override
+  String get updateImage => '更新图片';
+
+  @override
+  String get addPhoto => '添加照片';
+
+  @override
+  String get basicInformation => '基本信息';
+
+  @override
+  String get enterPersonnelName => '输入人员姓名';
+
+  @override
+  String get enterCardNumber => '输入卡号';
+
+  @override
+  String get selectAccessGroup => '选择访问组';
+
+  @override
+  String get deviceMapping => '设备映射';
+
+  @override
+  String get saving => '保存中...';
+
+  @override
+  String get confirmDelete => '确认删除';
+
+  @override
+  String get deletePersonnelConfirm => '您确定要删除此人员吗？此操作无法撤销。';
+
+  @override
+  String get delete => '删除';
+
+  @override
+  String get personnelUpdatedSuccessfully => '人员更新成功';
+
+  @override
+  String get personnelAddedSuccessfully => '人员添加成功';
+
+  @override
+  String errorPickingImage(String error) {
+    return '选择图片时出错：$error';
+  }
+
+  @override
+  String get admin => '管理员';
+
+  @override
+  String get employee => '员工';
+
+  @override
+  String get guest => '访客';
+
+  @override
+  String get exportLogs => '导出日志';
+
+  @override
+  String get filters => '筛选器';
+
+  @override
+  String get deviceSn => '设备 (序列号)';
+
+  @override
+  String get allDevices => '所有设备';
+
+  @override
+  String get personnelName => '人员姓名';
+
+  @override
+  String get searchByName => '按姓名搜索...';
+
+  @override
+  String get fromDate => '开始日期';
+
+  @override
+  String get selectFromDate => '选择开始日期';
+
+  @override
+  String get toDate => '结束日期';
+
+  @override
+  String get selectToDate => '选择结束日期';
+
+  @override
+  String get applyFilters => '应用筛选';
+
+  @override
+  String get clearFilters => '清除筛选';
+
+  @override
+  String get noAccessLogsFound => '未找到访问日志';
+
+  @override
+  String get accessLogs => '访问日志';
+
+  @override
+  String get exportingAccessLogs => '正在导出访问日志...';
+
+  @override
+  String accessLogsExported(String date) {
+    return '访问日志已导出为 access-logs-$date.csv';
+  }
+
+  @override
+  String get entry => '进入';
+
+  @override
+  String get exit => '离开';
+
+  @override
+  String errorSelectingBackupFile(String error) {
+    return '选择备份文件时出错：$error';
+  }
+
+  @override
+  String get pleaseSelectBackupFile => '请先选择备份文件';
+
+  @override
+  String get confirmRestore => '确认恢复';
+
+  @override
+  String get confirmRestoreMessage => '您确定要从上传的备份文件恢复吗？此操作将覆盖当前数据且无法撤销。';
+
+  @override
+  String get confirmRestoreButton => '确认恢复';
+
+  @override
+  String get configurationSavedSuccessfully => '配置保存成功';
+
+  @override
+  String get actions => '操作';
+
+  @override
+  String get restoreFromBackup => '从备份恢复';
+
+  @override
+  String get uploadBackupFile => '上传备份文件';
+
+  @override
+  String get restoring => '恢复中...';
+
+  @override
+  String get creatingBackup => '创建备份中...';
+
+  @override
+  String get backupNow => '立即备份';
+
+  @override
+  String get configuration => '配置';
+
+  @override
+  String get enableDailyBackup => '启用每日备份';
+
+  @override
+  String get backupTime24h => '备份时间 (24小时制)';
+
+  @override
+  String get backupPath => '备份路径';
+
+  @override
+  String get backupPathHint => '/backups/system';
+
+  @override
+  String get saveConfiguration => '保存配置';
+
+  @override
+  String get saveConfigurationLoading => '保存配置中...';
+
+  @override
+  String get no => '编号';
+
+  @override
+  String get accessGroup => '访问组';
+
+  @override
+  String get sunday => '周日';
+
+  @override
+  String get monday => '周一';
+
+  @override
+  String get tuesday => '周二';
+
+  @override
+  String get wednesday => '周三';
+
+  @override
+  String get thursday => '周四';
+
+  @override
+  String get friday => '周五';
+
+  @override
+  String get saturday => '周六';
+
+  @override
+  String get hhmm => '时:分';
+
+  @override
+  String get contractor => '承包商';
+
+  @override
+  String get visitor => '访客';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -455,7 +664,9 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get event => '事件';
 
   @override
-  String get time => '時間';
+  String time(int number) {
+    return '時間 $number';
+  }
 
   @override
   String get device => '設備';
@@ -504,4 +715,211 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get selectAll => '全選';
+
+  @override
+  String get photo => '照片';
+
+  @override
+  String get updateImage => '更新圖片';
+
+  @override
+  String get addPhoto => '新增照片';
+
+  @override
+  String get basicInformation => '基本資訊';
+
+  @override
+  String get enterPersonnelName => '輸入人員姓名';
+
+  @override
+  String get enterCardNumber => '輸入卡號';
+
+  @override
+  String get selectAccessGroup => '選擇存取群組';
+
+  @override
+  String get deviceMapping => '設備對應';
+
+  @override
+  String get saving => '儲存中...';
+
+  @override
+  String get confirmDelete => '確認刪除';
+
+  @override
+  String get deletePersonnelConfirm => '您確定要刪除此人員嗎？此操作無法復原。';
+
+  @override
+  String get delete => '刪除';
+
+  @override
+  String get personnelUpdatedSuccessfully => '人員更新成功';
+
+  @override
+  String get personnelAddedSuccessfully => '人員新增成功';
+
+  @override
+  String errorPickingImage(String error) {
+    return '選擇圖片時發生錯誤：$error';
+  }
+
+  @override
+  String get admin => '管理員';
+
+  @override
+  String get employee => '員工';
+
+  @override
+  String get guest => '訪客';
+
+  @override
+  String get exportLogs => '匯出記錄';
+
+  @override
+  String get filters => '篩選器';
+
+  @override
+  String get deviceSn => '設備 (序號)';
+
+  @override
+  String get allDevices => '所有設備';
+
+  @override
+  String get personnelName => '人員姓名';
+
+  @override
+  String get searchByName => '按姓名搜尋...';
+
+  @override
+  String get fromDate => '開始日期';
+
+  @override
+  String get selectFromDate => '選擇開始日期';
+
+  @override
+  String get toDate => '結束日期';
+
+  @override
+  String get selectToDate => '選擇結束日期';
+
+  @override
+  String get applyFilters => '套用篩選';
+
+  @override
+  String get clearFilters => '清除篩選';
+
+  @override
+  String get noAccessLogsFound => '未找到存取記錄';
+
+  @override
+  String get accessLogs => '存取記錄';
+
+  @override
+  String get exportingAccessLogs => '正在匯出存取記錄...';
+
+  @override
+  String accessLogsExported(String date) {
+    return '存取記錄已匯出為 access-logs-$date.csv';
+  }
+
+  @override
+  String get entry => '進入';
+
+  @override
+  String get exit => '離開';
+
+  @override
+  String errorSelectingBackupFile(String error) {
+    return '選擇備份檔案時發生錯誤：$error';
+  }
+
+  @override
+  String get pleaseSelectBackupFile => '請先選擇備份檔案';
+
+  @override
+  String get confirmRestore => '確認還原';
+
+  @override
+  String get confirmRestoreMessage => '您確定要從上傳的備份檔案還原嗎？此操作將覆蓋目前資料且無法復原。';
+
+  @override
+  String get confirmRestoreButton => '確認還原';
+
+  @override
+  String get configurationSavedSuccessfully => '設定儲存成功';
+
+  @override
+  String get actions => '操作';
+
+  @override
+  String get restoreFromBackup => '從備份還原';
+
+  @override
+  String get uploadBackupFile => '上傳備份檔案';
+
+  @override
+  String get restoring => '還原中...';
+
+  @override
+  String get creatingBackup => '建立備份中...';
+
+  @override
+  String get backupNow => '立即備份';
+
+  @override
+  String get configuration => '設定';
+
+  @override
+  String get enableDailyBackup => '啟用每日備份';
+
+  @override
+  String get backupTime24h => '備份時間 (24小時制)';
+
+  @override
+  String get backupPath => '備份路徑';
+
+  @override
+  String get backupPathHint => '/backups/system';
+
+  @override
+  String get saveConfiguration => '儲存設定';
+
+  @override
+  String get saveConfigurationLoading => '儲存設定中...';
+
+  @override
+  String get no => '編號';
+
+  @override
+  String get accessGroup => '存取群組';
+
+  @override
+  String get sunday => '週日';
+
+  @override
+  String get monday => '週一';
+
+  @override
+  String get tuesday => '週二';
+
+  @override
+  String get wednesday => '週三';
+
+  @override
+  String get thursday => '週四';
+
+  @override
+  String get friday => '週五';
+
+  @override
+  String get saturday => '週六';
+
+  @override
+  String get hhmm => '時:分';
+
+  @override
+  String get contractor => '承包商';
+
+  @override
+  String get visitor => '訪客';
 }

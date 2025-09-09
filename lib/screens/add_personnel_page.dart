@@ -27,11 +27,11 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
   Set<String> _selectedDeviceIds = {};
   bool _isLoading = false;
 
-  // Mock data
+  // Mock data - will be localized in the dropdown
   final List<AccessGroup> _accessGroups = [
-    AccessGroup(id: '1', name: 'Admin'),
-    AccessGroup(id: '2', name: 'Employee'),
-    AccessGroup(id: '3', name: 'Guest'),
+    AccessGroup(id: '1', name: 'admin'),
+    AccessGroup(id: '2', name: 'employee'),
+    AccessGroup(id: '3', name: 'guest'),
   ];
 
   final List<Device> _devices = [
@@ -73,7 +73,23 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
     if (widget.personnel != null) {
       _nameController.text = widget.personnel!.name;
       _cardNumberController.text = widget.personnel!.cardNumber ?? '';
-      _selectedAccessGroup = widget.personnel!.accessGroup;
+      // Map old access group names to new lowercase keys
+      String? accessGroup = widget.personnel!.accessGroup;
+      if (accessGroup != null) {
+        switch (accessGroup.toLowerCase()) {
+          case 'admin':
+            _selectedAccessGroup = 'admin';
+            break;
+          case 'employee':
+            _selectedAccessGroup = 'employee';
+            break;
+          case 'guest':
+            _selectedAccessGroup = 'guest';
+            break;
+          default:
+            _selectedAccessGroup = accessGroup.toLowerCase();
+        }
+      }
       _selectedDeviceIds = Set.from(widget.personnel!.deviceIds);
     }
   }
@@ -100,7 +116,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Error picking image: $e'),
+          content: Text(AppLocalizations.of(context)!.errorPickingImage(e.toString())),
           backgroundColor: AppTheme.error,
         ),
       );
@@ -147,8 +163,8 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(widget.personnel != null 
-              ? 'Personnel updated successfully' 
-              : 'Personnel added successfully'),
+              ? AppLocalizations.of(context)!.personnelUpdatedSuccessfully
+              : AppLocalizations.of(context)!.personnelAddedSuccessfully),
           backgroundColor: AppTheme.success,
         ),
       );
@@ -160,14 +176,12 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Confirm Delete'),
-        content: const Text(
-          'Are you sure you want to delete this personnel? This action cannot be undone.',
-        ),
+        title: Text(AppLocalizations.of(context)!.confirmDelete),
+        content: Text(AppLocalizations.of(context)!.deletePersonnelConfirm),
         actions: [
           OutlinedButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           ElevatedButton(
             onPressed: () {
@@ -178,7 +192,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
             style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.error,
             ),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context)!.delete),
           ),
         ],
       ),
@@ -194,7 +208,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
           IconButton(
             onPressed: _deletePersonnel,
             icon: const Icon(LucideIcons.trash2),
-            tooltip: 'Delete',
+            tooltip: AppLocalizations.of(context)!.delete,
           ),
         ] : null,
       ),
@@ -213,9 +227,9 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                 CustomCard(
                   child: Column(
                     children: [
-                      const CustomCardHeader(
-                        title: 'Photo',
-                        icon: Icon(LucideIcons.camera, color: AppTheme.accent),
+                      CustomCardHeader(
+                        title: AppLocalizations.of(context)!.photo,
+                        icon: const Icon(LucideIcons.camera, color: AppTheme.accent),
                       ),
                       Center(
                         child: Column(
@@ -266,8 +280,8 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                               onPressed: _pickImage,
                               icon: const Icon(LucideIcons.upload, size: 16),
                               label: Text(_selectedPhotoPath != null || widget.personnel?.photoUrl != null
-                                  ? 'Update Image'
-                                  : 'Add Photo'),
+                                  ? AppLocalizations.of(context)!.updateImage
+                                  : AppLocalizations.of(context)!.addPhoto),
                             ),
                           ],
                         ),
@@ -280,9 +294,9 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                 CustomCard(
                   child: Column(
                     children: [
-                      const CustomCardHeader(
-                        title: 'Basic Information',
-                        icon: Icon(LucideIcons.user, color: AppTheme.accent),
+                      CustomCardHeader(
+                        title: AppLocalizations.of(context)!.basicInformation,
+                        icon: const Icon(LucideIcons.user, color: AppTheme.accent),
                       ),
                       
                       // Name Field
@@ -290,7 +304,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                         controller: _nameController,
                         decoration: InputDecoration(
                           labelText: AppLocalizations.of(context)!.name,
-                          hintText: 'Enter personnel name',
+                          hintText: AppLocalizations.of(context)!.enterPersonnelName,
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -306,7 +320,7 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                         controller: _cardNumberController,
                         decoration: InputDecoration(
                           labelText: AppLocalizations.of(context)!.employeeId,
-                          hintText: 'Enter card number',
+                          hintText: AppLocalizations.of(context)!.enterCardNumber,
                         ),
                         keyboardType: TextInputType.number,
                         validator: (value) {
@@ -323,12 +337,26 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                         value: _selectedAccessGroup,
                         decoration: InputDecoration(
                           labelText: AppLocalizations.of(context)!.accessLevel,
-                          hintText: 'Select Access Group',
+                          hintText: AppLocalizations.of(context)!.selectAccessGroup,
                         ),
                         items: _accessGroups.map((group) {
+                          String localizedName;
+                          switch (group.name) {
+                            case 'admin':
+                              localizedName = AppLocalizations.of(context)!.admin;
+                              break;
+                            case 'employee':
+                              localizedName = AppLocalizations.of(context)!.employee;
+                              break;
+                            case 'guest':
+                              localizedName = AppLocalizations.of(context)!.guest;
+                              break;
+                            default:
+                              localizedName = group.name;
+                          }
                           return DropdownMenuItem(
                             value: group.name,
-                            child: Text(group.name),
+                            child: Text(localizedName),
                           );
                         }).toList(),
                         onChanged: (value) {
@@ -345,9 +373,9 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                 CustomCard(
                   child: Column(
                     children: [
-                      const CustomCardHeader(
-                        title: 'Device Mapping',
-                        icon: Icon(LucideIcons.smartphone, color: AppTheme.accent),
+                      CustomCardHeader(
+                        title: AppLocalizations.of(context)!.deviceMapping,
+                        icon: const Icon(LucideIcons.smartphone, color: AppTheme.accent),
                       ),
                       
                       // Select All Toggle
@@ -415,10 +443,10 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                         child: ElevatedButton(
                           onPressed: _isLoading ? null : _savePersonnel,
                           child: _isLoading
-                              ? const Row(
+                              ? Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 16,
                                       height: 16,
                                       child: CircularProgressIndicator(
@@ -428,8 +456,8 @@ class _AddPersonnelPageState extends State<AddPersonnelPage> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: 8),
-                                    Text('Saving...'),
+                                    const SizedBox(width: 8),
+                                    Text(AppLocalizations.of(context)!.saving),
                                   ],
                                 )
                               : Text(widget.personnel != null ? AppLocalizations.of(context)!.save : AppLocalizations.of(context)!.addPersonnel),

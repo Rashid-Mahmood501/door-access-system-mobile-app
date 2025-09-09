@@ -209,7 +209,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get event => 'Event';
 
   @override
-  String get time => 'Time';
+  String time(int number) {
+    return 'Time $number';
+  }
 
   @override
   String get device => 'Device';
@@ -258,4 +260,214 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get selectAll => 'Select All';
+
+  @override
+  String get photo => 'Photo';
+
+  @override
+  String get updateImage => 'Update Image';
+
+  @override
+  String get addPhoto => 'Add Photo';
+
+  @override
+  String get basicInformation => 'Basic Information';
+
+  @override
+  String get enterPersonnelName => 'Enter personnel name';
+
+  @override
+  String get enterCardNumber => 'Enter card number';
+
+  @override
+  String get selectAccessGroup => 'Select Access Group';
+
+  @override
+  String get deviceMapping => 'Device Mapping';
+
+  @override
+  String get saving => 'Save...';
+
+  @override
+  String get confirmDelete => 'Confirm Delete';
+
+  @override
+  String get deletePersonnelConfirm =>
+      'Are you sure you want to delete this personnel? This action cannot be undone.';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get personnelUpdatedSuccessfully => 'Personnel updated successfully';
+
+  @override
+  String get personnelAddedSuccessfully => 'Personnel added successfully';
+
+  @override
+  String errorPickingImage(String error) {
+    return 'Error picking image: $error';
+  }
+
+  @override
+  String get admin => 'Admin';
+
+  @override
+  String get employee => 'Employee';
+
+  @override
+  String get guest => 'Guest';
+
+  @override
+  String get exportLogs => 'Export Logs';
+
+  @override
+  String get filters => 'Filters';
+
+  @override
+  String get deviceSn => 'Device (SN)';
+
+  @override
+  String get allDevices => 'All devices';
+
+  @override
+  String get personnelName => 'Personnel Name';
+
+  @override
+  String get searchByName => 'Search by name...';
+
+  @override
+  String get fromDate => 'From Date';
+
+  @override
+  String get selectFromDate => 'Select from date';
+
+  @override
+  String get toDate => 'To Date';
+
+  @override
+  String get selectToDate => 'Select to date';
+
+  @override
+  String get applyFilters => 'Apply Filters';
+
+  @override
+  String get clearFilters => 'Clear Filters';
+
+  @override
+  String get noAccessLogsFound => 'No access logs found';
+
+  @override
+  String get accessLogs => 'Access Logs';
+
+  @override
+  String get exportingAccessLogs => 'Exporting access logs...';
+
+  @override
+  String accessLogsExported(String date) {
+    return 'Access logs exported as access-logs-$date.csv';
+  }
+
+  @override
+  String get entry => 'Entry';
+
+  @override
+  String get exit => 'Exit';
+
+  @override
+  String errorSelectingBackupFile(String error) {
+    return 'Error selecting backup file: $error';
+  }
+
+  @override
+  String get pleaseSelectBackupFile => 'Please select a backup file first';
+
+  @override
+  String get confirmRestore => 'Confirm Restore';
+
+  @override
+  String get confirmRestoreMessage =>
+      'Are you sure you want to restore from the uploaded backup file? This action will overwrite current data and cannot be undone.';
+
+  @override
+  String get confirmRestoreButton => 'Confirm Restore';
+
+  @override
+  String get configurationSavedSuccessfully =>
+      'Configuration saved successfully';
+
+  @override
+  String get actions => 'Actions';
+
+  @override
+  String get restoreFromBackup => 'Restore from Backup';
+
+  @override
+  String get uploadBackupFile => 'Upload Backup File';
+
+  @override
+  String get restoring => 'Restoring...';
+
+  @override
+  String get creatingBackup => 'Creating Backup...';
+
+  @override
+  String get backupNow => 'Backup Now';
+
+  @override
+  String get configuration => 'Configuration';
+
+  @override
+  String get enableDailyBackup => 'Enable Daily Backup';
+
+  @override
+  String get backupTime24h => 'Backup Time (24H)';
+
+  @override
+  String get backupPath => 'Backup Path';
+
+  @override
+  String get backupPathHint => '/backups/system';
+
+  @override
+  String get saveConfiguration => 'Save Configuration';
+
+  @override
+  String get saveConfigurationLoading => 'Save Configuration...';
+
+  @override
+  String get no => 'NO.';
+
+  @override
+  String get accessGroup => 'Access Group';
+
+  @override
+  String get sunday => 'Sun';
+
+  @override
+  String get monday => 'Mon';
+
+  @override
+  String get tuesday => 'Tue';
+
+  @override
+  String get wednesday => 'Wed';
+
+  @override
+  String get thursday => 'Thu';
+
+  @override
+  String get friday => 'Fri';
+
+  @override
+  String get saturday => 'Sat';
+
+  @override
+  String get hhmm => 'HH:MM';
+
+  @override
+  String get contractor => 'Contractor';
+
+  @override
+  String get visitor => 'Visitor';
 }

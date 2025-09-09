@@ -30,7 +30,7 @@ class _SettingsPageState extends State<SettingsPage> {
       // Admin (non-editable)
       AccessConfig(
         id: '1',
-        accessGroup: 'Admin',
+        accessGroup: 'admin',
         timeSlots: [
           TimeSlot(from: '00:00', to: '23:59'),
           TimeSlot(from: '00:00', to: '23:59'),
@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
       // Employee (editable)
       AccessConfig(
         id: '2',
-        accessGroup: 'Employee',
+        accessGroup: 'employee',
         timeSlots: [
           TimeSlot(from: '08:00', to: '17:00'),
           TimeSlot(from: '08:00', to: '17:00'),
@@ -74,7 +74,7 @@ class _SettingsPageState extends State<SettingsPage> {
       // Contractor (editable)
       AccessConfig(
         id: '3',
-        accessGroup: 'Contractor',
+        accessGroup: 'contractor',
         timeSlots: [
           TimeSlot(from: '09:00', to: '16:00'),
           TimeSlot(from: '09:00', to: '16:00'),
@@ -96,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
       // Visitor (editable)
       AccessConfig(
         id: '4',
-        accessGroup: 'Visitor',
+        accessGroup: 'visitor',
         timeSlots: [
           TimeSlot(from: '10:00', to: '15:00'),
           TimeSlot(from: '10:00', to: '15:00'),
@@ -118,7 +118,7 @@ class _SettingsPageState extends State<SettingsPage> {
       // Guest (non-editable)
       AccessConfig(
         id: '5',
-        accessGroup: 'Guest',
+        accessGroup: 'guest',
         timeSlots: [
           TimeSlot(from: '08:00', to: '18:00'),
           TimeSlot(from: '08:00', to: '18:00'),
@@ -190,6 +190,44 @@ class _SettingsPageState extends State<SettingsPage> {
     });
   }
 
+  String _getDayAbbreviation(String day) {
+    switch (day) {
+      case 'sunday':
+        return AppLocalizations.of(context)!.sunday;
+      case 'monday':
+        return AppLocalizations.of(context)!.monday;
+      case 'tuesday':
+        return AppLocalizations.of(context)!.tuesday;
+      case 'wednesday':
+        return AppLocalizations.of(context)!.wednesday;
+      case 'thursday':
+        return AppLocalizations.of(context)!.thursday;
+      case 'friday':
+        return AppLocalizations.of(context)!.friday;
+      case 'saturday':
+        return AppLocalizations.of(context)!.saturday;
+      default:
+        return day.substring(0, 3);
+    }
+  }
+
+  String _getAccessGroupName(String accessGroup) {
+    switch (accessGroup.toLowerCase()) {
+      case 'admin':
+        return AppLocalizations.of(context)!.admin;
+      case 'employee':
+        return AppLocalizations.of(context)!.employee;
+      case 'contractor':
+        return AppLocalizations.of(context)!.contractor;
+      case 'visitor':
+        return AppLocalizations.of(context)!.visitor;
+      case 'guest':
+        return AppLocalizations.of(context)!.guest;
+      default:
+        return accessGroup;
+    }
+  }
+
   void _cancelChanges() {
     setState(() {
       _accessConfigs = _originalConfigs.map((config) => config.copyWith()).toList();
@@ -213,8 +251,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Configuration saved successfully'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.configurationSavedSuccessfully),
           backgroundColor: AppTheme.success,
         ),
       );
@@ -308,10 +346,10 @@ class _SettingsPageState extends State<SettingsPage> {
                             child: ElevatedButton(
                               onPressed: _hasChanges && !_isSaving ? _saveChanges : null,
                               child: _isSaving
-                                  ? const Row(
+                                  ? Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 16,
                                           height: 16,
                                           child: CircularProgressIndicator(
@@ -321,8 +359,8 @@ class _SettingsPageState extends State<SettingsPage> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(width: 8),
-                                        Text('Save...'),
+                                        const SizedBox(width: 8),
+                                        Text(AppLocalizations.of(context)!.saving),
                                       ],
                                     )
                                   : Text(AppLocalizations.of(context)!.save),
@@ -348,7 +386,7 @@ class _SettingsPageState extends State<SettingsPage> {
         SizedBox(
           width: 50,
           child: Text(
-            'NO.',
+            AppLocalizations.of(context)!.no,
             style: AppTheme.labelMedium.copyWith(
               fontWeight: FontWeight.w600,
             ),
@@ -360,7 +398,7 @@ class _SettingsPageState extends State<SettingsPage> {
         SizedBox(
           width: 100,
           child: Text(
-            'Access Group',
+            AppLocalizations.of(context)!.accessGroup,
             style: AppTheme.labelMedium.copyWith(
               fontWeight: FontWeight.w600,
             ),
@@ -375,7 +413,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SizedBox(
                 width: 80,
                 child: Text(
-                  'Time ${index + 1}',
+                  AppLocalizations.of(context)!.time(index + 1),
                   style: AppTheme.labelMedium.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -393,7 +431,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SizedBox(
                 width: 40,
                 child: Text(
-                  day.substring(0, 3),
+                  _getDayAbbreviation(day),
                   style: AppTheme.labelMedium.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -445,7 +483,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     onChanged: (value) => _updateAccessGroup(index, value),
                   )
                 : Text(
-                    config.accessGroup,
+                    _getAccessGroupName(config.accessGroup),
                     style: AppTheme.bodyMedium.copyWith(
                       color: AppTheme.mutedForeground,
                     ),
@@ -466,10 +504,10 @@ class _SettingsPageState extends State<SettingsPage> {
                               child: TextFormField(
                                 initialValue: config.timeSlots[slotIndex].from,
                                 style: AppTheme.bodySmall,
-                                decoration: const InputDecoration(
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                                  border: OutlineInputBorder(),
-                                  hintText: 'HH:MM',
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                                  border: const OutlineInputBorder(),
+                                  hintText: AppLocalizations.of(context)!.hhmm,
                                 ),
                                 onChanged: (value) => _updateTimeSlot(
                                   index,
@@ -484,10 +522,10 @@ class _SettingsPageState extends State<SettingsPage> {
                               child: TextFormField(
                                 initialValue: config.timeSlots[slotIndex].to,
                                 style: AppTheme.bodySmall,
-                                decoration: const InputDecoration(
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                                  border: OutlineInputBorder(),
-                                  hintText: 'HH:MM',
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                                  border: const OutlineInputBorder(),
+                                  hintText: AppLocalizations.of(context)!.hhmm,
                                 ),
                                 onChanged: (value) => _updateTimeSlot(
                                   index,

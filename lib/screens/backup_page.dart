@@ -60,7 +60,7 @@ class _BackupPageState extends State<BackupPage> {
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Error selecting backup file: $e'),
+          content: Text(AppLocalizations.of(context)!.errorSelectingBackupFile(e.toString())),
           backgroundColor: AppTheme.error,
         ),
       );
@@ -70,8 +70,8 @@ class _BackupPageState extends State<BackupPage> {
   Future<void> _restoreBackup() async {
     if (_selectedBackupFile == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please select a backup file first'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.pleaseSelectBackupFile),
           backgroundColor: AppTheme.warning,
         ),
       );
@@ -81,21 +81,19 @@ class _BackupPageState extends State<BackupPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Confirm Restore'),
-        content: const Text(
-          'Are you sure you want to restore from the uploaded backup file? This action will overwrite current data and cannot be undone.',
-        ),
+        title: Text(AppLocalizations.of(context)!.confirmRestore),
+        content: Text(AppLocalizations.of(context)!.confirmRestoreMessage),
         actions: [
           OutlinedButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.of(context).pop(true),
             style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.accent,
             ),
-            child: const Text('Confirm Restore'),
+            child: Text(AppLocalizations.of(context)!.confirmRestoreButton),
           ),
         ],
       ),
@@ -116,8 +114,8 @@ class _BackupPageState extends State<BackupPage> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Backup restored successfully'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.backupRestored),
             backgroundColor: AppTheme.success,
           ),
         );
@@ -152,8 +150,8 @@ class _BackupPageState extends State<BackupPage> {
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Configuration saved successfully'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.configurationSavedSuccessfully),
           backgroundColor: AppTheme.success,
         ),
       );
@@ -178,9 +176,9 @@ class _BackupPageState extends State<BackupPage> {
             children: [
               // Header Section
               Container(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       AppLocalizations.of(context)!.backup,
@@ -204,9 +202,9 @@ class _BackupPageState extends State<BackupPage> {
                 margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                 child: Column(
                   children: [
-                    const CustomCardHeader(
-                      title: 'Actions',
-                      icon: Icon(LucideIcons.settings, color: AppTheme.accent),
+                    CustomCardHeader(
+                      title: AppLocalizations.of(context)!.actions,
+                      icon: const Icon(LucideIcons.settings, color: AppTheme.accent),
                     ),
                     
                     // Restore Section
@@ -221,7 +219,7 @@ class _BackupPageState extends State<BackupPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Restore from Backup',
+                            AppLocalizations.of(context)!.restoreFromBackup,
                             style: AppTheme.labelLarge,
                           ),
                           const SizedBox(height: 12),
@@ -231,7 +229,7 @@ class _BackupPageState extends State<BackupPage> {
                                 child: OutlinedButton.icon(
                                   onPressed: _uploadBackupFile,
                                   icon: const Icon(LucideIcons.upload, size: 16),
-                                  label: const Text('Upload Backup File'),
+                                  label: Text(AppLocalizations.of(context)!.uploadBackupFile),
                                 ),
                               ),
                             ],
@@ -283,7 +281,7 @@ class _BackupPageState extends State<BackupPage> {
                                         ),
                                       )
                                     : const Icon(LucideIcons.upload, size: 16),
-                                label: Text(_isRestoring ? 'Restoring...' : AppLocalizations.of(context)!.restoreBackup),
+                                label: Text(_isRestoring ? AppLocalizations.of(context)!.restoring : AppLocalizations.of(context)!.restoreBackup),
                               ),
                             ),
                           ],
@@ -325,7 +323,7 @@ class _BackupPageState extends State<BackupPage> {
                                       ),
                                     )
                                   : const Icon(LucideIcons.download, size: 16),
-                              label: Text(_isCreatingBackup ? 'Creating Backup...' : 'Backup Now'),
+                              label: Text(_isCreatingBackup ? AppLocalizations.of(context)!.creatingBackup : AppLocalizations.of(context)!.backupNow),
                             ),
                           ),
                         ],
@@ -340,9 +338,9 @@ class _BackupPageState extends State<BackupPage> {
                 margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                 child: Column(
                   children: [
-                    const CustomCardHeader(
-                      title: 'Configuration',
-                      icon: Icon(LucideIcons.settings, color: AppTheme.accent),
+                    CustomCardHeader(
+                      title: AppLocalizations.of(context)!.configuration,
+                      icon: const Icon(LucideIcons.settings, color: AppTheme.accent),
                     ),
                     
                     // Enable Daily Backup
@@ -357,7 +355,7 @@ class _BackupPageState extends State<BackupPage> {
                           },
                           activeColor: AppTheme.accent,
                         ),
-                        const Text('Enable Daily Backup'),
+                        Text(AppLocalizations.of(context)!.enableDailyBackup),
                       ],
                     ),
                     const SizedBox(height: 16),
@@ -366,8 +364,8 @@ class _BackupPageState extends State<BackupPage> {
                     InkWell(
                       onTap: _selectBackupTime,
                       child: InputDecorator(
-                        decoration: const InputDecoration(
-                          labelText: 'Backup Time (24H)',
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.backupTime24h,
                         ),
                         child: Text(
                           _backupTime.format(context),
@@ -380,9 +378,9 @@ class _BackupPageState extends State<BackupPage> {
                     // Backup Path
                     TextFormField(
                       initialValue: _backupPath,
-                      decoration: const InputDecoration(
-                        labelText: 'Backup Path',
-                        hintText: '/backups/system',
+                      decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context)!.backupPath,
+                        hintText: AppLocalizations.of(context)!.backupPathHint,
                       ),
                       onChanged: (value) {
                         _backupPath = value;
@@ -407,7 +405,7 @@ class _BackupPageState extends State<BackupPage> {
                                 ),
                               )
                             : const Icon(LucideIcons.settings, size: 16),
-                        label: Text(_isSavingConfig ? 'Save Configuration...' : 'Save Configuration'),
+                        label: Text(_isSavingConfig ? AppLocalizations.of(context)!.saveConfigurationLoading : AppLocalizations.of(context)!.saveConfiguration),
                       ),
                     ),
                   ],

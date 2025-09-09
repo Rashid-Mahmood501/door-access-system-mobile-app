@@ -145,8 +145,8 @@ class _AccessLogPageState extends State<AccessLogPage> {
   Future<void> _exportLogs() async {
     // Simulate export functionality
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Exporting access logs...'),
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.exportingAccessLogs),
         backgroundColor: AppTheme.info,
       ),
     );
@@ -156,7 +156,7 @@ class _AccessLogPageState extends State<AccessLogPage> {
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Access logs exported as access-logs-${DateFormat('yyyy-MM-dd').format(DateTime.now())}.csv'),
+          content: Text(AppLocalizations.of(context)!.accessLogsExported(DateFormat('yyyy-MM-dd').format(DateTime.now()))),
           backgroundColor: AppTheme.success,
         ),
       );
@@ -219,7 +219,7 @@ class _AccessLogPageState extends State<AccessLogPage> {
                       child: ElevatedButton.icon(
                         onPressed: _exportLogs,
                         icon: const Icon(LucideIcons.download, size: 18),
-                        label: const Text('Export Logs'),
+                        label: Text(AppLocalizations.of(context)!.exportLogs),
                       ),
                     ),
                   ],
@@ -233,9 +233,9 @@ class _AccessLogPageState extends State<AccessLogPage> {
                 margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                 child: Column(
                   children: [
-                    const CustomCardHeader(
-                      title: 'Filters',
-                      icon: Icon(LucideIcons.filter, color: AppTheme.accent),
+                    CustomCardHeader(
+                      title: AppLocalizations.of(context)!.filters,
+                      icon: const Icon(LucideIcons.filter, color: AppTheme.accent),
                     ),
                     
                     // Filter Fields
@@ -244,14 +244,14 @@ class _AccessLogPageState extends State<AccessLogPage> {
                         // Device Selection
                         DropdownButtonFormField<String>(
                           value: _selectedDeviceId,
-                          decoration: const InputDecoration(
-                            labelText: 'Device (SN)',
-                            hintText: 'All devices',
+                          decoration: InputDecoration(
+                            labelText: AppLocalizations.of(context)!.deviceSn,
+                            hintText: AppLocalizations.of(context)!.allDevices,
                           ),
                           items: [
-                            const DropdownMenuItem(
+                            DropdownMenuItem(
                               value: 'all',
-                              child: Text('All devices'),
+                              child: Text(AppLocalizations.of(context)!.allDevices),
                             ),
                             ..._devices.map((device) {
                               return DropdownMenuItem(
@@ -271,9 +271,9 @@ class _AccessLogPageState extends State<AccessLogPage> {
 
                         // Personnel Name
                         TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'Personnel Name',
-                            hintText: 'Search by name...',
+                          decoration: InputDecoration(
+                            labelText: AppLocalizations.of(context)!.personnelName,
+                            hintText: AppLocalizations.of(context)!.searchByName,
                           ),
                           onChanged: (value) {
                             setState(() {
@@ -301,14 +301,14 @@ class _AccessLogPageState extends State<AccessLogPage> {
                             }
                           },
                           child: InputDecorator(
-                            decoration: const InputDecoration(
-                              labelText: 'From Date',
-                              hintText: 'Select from date',
+                            decoration: InputDecoration(
+                              labelText: AppLocalizations.of(context)!.fromDate,
+                              hintText: AppLocalizations.of(context)!.selectFromDate,
                             ),
                             child: Text(
                               _fromDate != null
                                   ? DateFormat('MMM dd, yyyy').format(_fromDate!)
-                                  : 'Select from date',
+                                  : AppLocalizations.of(context)!.selectFromDate,
                               style: _fromDate != null
                                   ? AppTheme.bodyMedium
                                   : AppTheme.bodyMedium.copyWith(
@@ -336,14 +336,14 @@ class _AccessLogPageState extends State<AccessLogPage> {
                             }
                           },
                           child: InputDecorator(
-                            decoration: const InputDecoration(
-                              labelText: 'To Date',
-                              hintText: 'Select to date',
+                            decoration: InputDecoration(
+                              labelText: AppLocalizations.of(context)!.toDate,
+                              hintText: AppLocalizations.of(context)!.selectToDate,
                             ),
                             child: Text(
                               _toDate != null
                                   ? DateFormat('MMM dd, yyyy').format(_toDate!)
-                                  : 'Select to date',
+                                  : AppLocalizations.of(context)!.selectToDate,
                               style: _toDate != null
                                   ? AppTheme.bodyMedium
                                   : AppTheme.bodyMedium.copyWith(
@@ -361,7 +361,7 @@ class _AccessLogPageState extends State<AccessLogPage> {
                               child: OutlinedButton.icon(
                                 onPressed: _applyFilters,
                                 icon: const Icon(LucideIcons.filter, size: 16),
-                                label: const Text('Apply Filters'),
+                                label: Text(AppLocalizations.of(context)!.applyFilters),
                               ),
                             ),
                             const SizedBox(width: 12),
@@ -369,7 +369,7 @@ class _AccessLogPageState extends State<AccessLogPage> {
                               child: OutlinedButton.icon(
                                 onPressed: _clearFilters,
                                 icon: const Icon(LucideIcons.x, size: 16),
-                                label: const Text('Clear Filters'),
+                                label: Text(AppLocalizations.of(context)!.clearFilters),
                               ),
                             ),
                           ],
@@ -395,7 +395,7 @@ class _AccessLogPageState extends State<AccessLogPage> {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'No access logs found',
+                              AppLocalizations.of(context)!.noAccessLogsFound,
                               style: AppTheme.bodyLarge.copyWith(
                                 color: AppTheme.mutedForeground,
                               ),
@@ -409,9 +409,9 @@ class _AccessLogPageState extends State<AccessLogPage> {
                       margin: const EdgeInsets.fromLTRB(12, 0, 12, 16),
                       child: Column(
                         children: [
-                          const CustomCardHeader(
-                            title: 'Access Logs',
-                            icon: Icon(LucideIcons.fileText, color: AppTheme.accent),
+                          CustomCardHeader(
+                            title: AppLocalizations.of(context)!.accessLogs,
+                            icon: const Icon(LucideIcons.fileText, color: AppTheme.accent),
                           ),
                           ListView.builder(
                             shrinkWrap: true,
@@ -462,7 +462,7 @@ class _AccessLogPageState extends State<AccessLogPage> {
                   ),
                 ),
                 child: Text(
-                  log.direction.displayName,
+                  log.direction.displayName(context),
                   style: AppTheme.labelSmall.copyWith(
                     color: _getDirectionColor(log.direction),
                     fontWeight: FontWeight.w500,

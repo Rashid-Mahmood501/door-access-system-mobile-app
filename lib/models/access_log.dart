@@ -1,4 +1,6 @@
 import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
+import '../l10n/generated/app_localizations.dart';
 
 class AccessLog {
   final String id;
@@ -31,12 +33,12 @@ enum AccessDirection {
 }
 
 extension AccessDirectionExtension on AccessDirection {
-  String get displayName {
+  String displayName(BuildContext context) {
     switch (this) {
       case AccessDirection.entry:
-        return 'In';
+        return AppLocalizations.of(context)!.entry;
       case AccessDirection.exit:
-        return 'Out';
+        return AppLocalizations.of(context)!.exit;
     }
   }
 }

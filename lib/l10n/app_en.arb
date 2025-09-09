@@ -327,5 +327,305 @@
   "selectAll": "Select All",
   "@selectAll": {
     "description": "Select all checkbox label"
+  },
+  "photo": "Photo",
+  "@photo": {
+    "description": "Photo section header"
+  },
+  "updateImage": "Update Image",
+  "@updateImage": {
+    "description": "Update image button text"
+  },
+  "addPhoto": "Add Photo",
+  "@addPhoto": {
+    "description": "Add photo button text"
+  },
+  "basicInformation": "Basic Information",
+  "@basicInformation": {
+    "description": "Basic information section header"
+  },
+  "enterPersonnelName": "Enter personnel name",
+  "@enterPersonnelName": {
+    "description": "Name field hint text"
+  },
+  "enterCardNumber": "Enter card number",
+  "@enterCardNumber": {
+    "description": "Card number field hint text"
+  },
+  "selectAccessGroup": "Select Access Group",
+  "@selectAccessGroup": {
+    "description": "Access group dropdown hint text"
+  },
+  "deviceMapping": "Device Mapping",
+  "@deviceMapping": {
+    "description": "Device mapping section header"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Saving loading text"
+  },
+  "confirmDelete": "Confirm Delete",
+  "@confirmDelete": {
+    "description": "Delete confirmation dialog title"
+  },
+  "deletePersonnelConfirm": "Are you sure you want to delete this personnel? This action cannot be undone.",
+  "@deletePersonnelConfirm": {
+    "description": "Delete confirmation dialog message"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button text"
+  },
+  "personnelUpdatedSuccessfully": "Personnel updated successfully",
+  "@personnelUpdatedSuccessfully": {
+    "description": "Personnel update success message"
+  },
+  "personnelAddedSuccessfully": "Personnel added successfully",
+  "@personnelAddedSuccessfully": {
+    "description": "Personnel add success message"
+  },
+  "errorPickingImage": "Error picking image: {error}",
+  "@errorPickingImage": {
+    "description": "Image picker error message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "admin": "Admin",
+  "@admin": {
+    "description": "Admin access group"
+  },
+  "employee": "Employee",
+  "@employee": {
+    "description": "Employee access group"
+  },
+  "guest": "Guest",
+  "@guest": {
+    "description": "Guest access group"
+  },
+  "exportLogs": "Export Logs",
+  "@exportLogs": {
+    "description": "Export logs button text"
+  },
+  "filters": "Filters",
+  "@filters": {
+    "description": "Filters section header"
+  },
+  "deviceSn": "Device (SN)",
+  "@deviceSn": {
+    "description": "Device selection label"
+  },
+  "allDevices": "All devices",
+  "@allDevices": {
+    "description": "All devices option"
+  },
+  "personnelName": "Personnel Name",
+  "@personnelName": {
+    "description": "Personnel name field label"
+  },
+  "searchByName": "Search by name...",
+  "@searchByName": {
+    "description": "Personnel name search hint"
+  },
+  "fromDate": "From Date",
+  "@fromDate": {
+    "description": "From date field label"
+  },
+  "selectFromDate": "Select from date",
+  "@selectFromDate": {
+    "description": "From date selection hint"
+  },
+  "toDate": "To Date",
+  "@toDate": {
+    "description": "To date field label"
+  },
+  "selectToDate": "Select to date",
+  "@selectToDate": {
+    "description": "To date selection hint"
+  },
+  "applyFilters": "Apply Filters",
+  "@applyFilters": {
+    "description": "Apply filters button text"
+  },
+  "clearFilters": "Clear Filters",
+  "@clearFilters": {
+    "description": "Clear filters button text"
+  },
+  "noAccessLogsFound": "No access logs found",
+  "@noAccessLogsFound": {
+    "description": "No access logs message"
+  },
+  "accessLogs": "Access Logs",
+  "@accessLogs": {
+    "description": "Access logs list header"
+  },
+  "exportingAccessLogs": "Exporting access logs...",
+  "@exportingAccessLogs": {
+    "description": "Export progress message"
+  },
+  "accessLogsExported": "Access logs exported as access-logs-{date}.csv",
+  "@accessLogsExported": {
+    "description": "Export success message",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "entry": "Entry",
+  "@entry": {
+    "description": "Entry direction label"
+  },
+  "exit": "Exit",
+  "@exit": {
+    "description": "Exit direction label"
+  },
+  "errorSelectingBackupFile": "Error selecting backup file: {error}",
+  "@errorSelectingBackupFile": {
+    "description": "Backup file selection error message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "pleaseSelectBackupFile": "Please select a backup file first",
+  "@pleaseSelectBackupFile": {
+    "description": "Backup file selection required message"
+  },
+  "confirmRestore": "Confirm Restore",
+  "@confirmRestore": {
+    "description": "Restore confirmation dialog title"
+  },
+  "confirmRestoreMessage": "Are you sure you want to restore from the uploaded backup file? This action will overwrite current data and cannot be undone.",
+  "@confirmRestoreMessage": {
+    "description": "Restore confirmation dialog message"
+  },
+  "confirmRestoreButton": "Confirm Restore",
+  "@confirmRestoreButton": {
+    "description": "Confirm restore button text"
+  },
+  "configurationSavedSuccessfully": "Configuration saved successfully",
+  "@configurationSavedSuccessfully": {
+    "description": "Configuration save success message"
+  },
+  "actions": "Actions",
+  "@actions": {
+    "description": "Actions section header"
+  },
+  "restoreFromBackup": "Restore from Backup",
+  "@restoreFromBackup": {
+    "description": "Restore section title"
+  },
+  "uploadBackupFile": "Upload Backup File",
+  "@uploadBackupFile": {
+    "description": "Upload backup file button text"
+  },
+  "restoring": "Restoring...",
+  "@restoring": {
+    "description": "Restoring loading text"
+  },
+  "creatingBackup": "Creating Backup...",
+  "@creatingBackup": {
+    "description": "Creating backup loading text"
+  },
+  "backupNow": "Backup Now",
+  "@backupNow": {
+    "description": "Backup now button text"
+  },
+  "configuration": "Configuration",
+  "@configuration": {
+    "description": "Configuration section header"
+  },
+  "enableDailyBackup": "Enable Daily Backup",
+  "@enableDailyBackup": {
+    "description": "Enable daily backup checkbox label"
+  },
+  "backupTime24h": "Backup Time (24H)",
+  "@backupTime24h": {
+    "description": "Backup time field label"
+  },
+  "backupPath": "Backup Path",
+  "@backupPath": {
+    "description": "Backup path field label"
+  },
+  "backupPathHint": "/backups/system",
+  "@backupPathHint": {
+    "description": "Backup path field hint"
+  },
+  "saveConfiguration": "Save Configuration",
+  "@saveConfiguration": {
+    "description": "Save configuration button text"
+  },
+  "saveConfigurationLoading": "Save Configuration...",
+  "@saveConfigurationLoading": {
+    "description": "Save configuration loading text"
+  },
+  "configurationSavedSuccessfully": "Configuration saved successfully",
+  "@configurationSavedSuccessfully": {
+    "description": "Configuration save success message"
+  },
+  "no": "NO.",
+  "@no": {
+    "description": "Number column header"
+  },
+  "accessGroup": "Access Group",
+  "@accessGroup": {
+    "description": "Access group column header"
+  },
+  "time": "Time {number}",
+  "@time": {
+    "description": "Time slot column header",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "sunday": "Sun",
+  "@sunday": {
+    "description": "Sunday abbreviation"
+  },
+  "monday": "Mon",
+  "@monday": {
+    "description": "Monday abbreviation"
+  },
+  "tuesday": "Tue",
+  "@tuesday": {
+    "description": "Tuesday abbreviation"
+  },
+  "wednesday": "Wed",
+  "@wednesday": {
+    "description": "Wednesday abbreviation"
+  },
+  "thursday": "Thu",
+  "@thursday": {
+    "description": "Thursday abbreviation"
+  },
+  "friday": "Fri",
+  "@friday": {
+    "description": "Friday abbreviation"
+  },
+  "saturday": "Sat",
+  "@saturday": {
+    "description": "Saturday abbreviation"
+  },
+  "hhmm": "HH:MM",
+  "@hhmm": {
+    "description": "Time format hint"
+  },
+  "saving": "Save...",
+  "@saving": {
+    "description": "Saving loading text"
+  },
+  "contractor": "Contractor",
+  "@contractor": {
+    "description": "Contractor access group"
+  },
+  "visitor": "Visitor",
+  "@visitor": {
+    "description": "Visitor access group"
   }
 }
