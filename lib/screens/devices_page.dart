@@ -109,30 +109,39 @@ class _DevicesPageState extends State<DevicesPage> {
         imagePath: 'Assets/hkezit-logo.png',
         onLogout: null,
       ),
-      body: Column(
-        children: [
-          // Header Section
-          Container(
-            padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.devices,
-                  style: AppTheme.heading2,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: AppTheme.backgroundGradient,
+        ),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Header Section
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.devices,
+                      style: AppTheme.heading2,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      AppLocalizations.of(context)!.manageAndMonitorDevices,
+                      style: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.mutedForeground,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  AppLocalizations.of(context)!.manageAndMonitorDevices,
-                  style: AppTheme.bodyMedium.copyWith(
-                    color: AppTheme.mutedForeground,
-                  ),
-                ),
-              ],
-            ),
-          ),
+              ),
 
-          // Search Bar
+              const SizedBox(height: 16),
+
+              // Search Bar
           CustomSearchBar(
             placeholder: AppLocalizations.of(context)!.searchDevices,
             value: _searchController.text,
@@ -143,9 +152,8 @@ class _DevicesPageState extends State<DevicesPage> {
             },
           ),
 
-          // Device List
-          Expanded(
-            child: _filteredDevices.isEmpty
+              // Device List
+              _filteredDevices.isEmpty
                 ? Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -178,21 +186,22 @@ class _DevicesPageState extends State<DevicesPage> {
                             color: AppTheme.accent,
                           ),
                         ),
-                        Expanded(
-                          child: ListView.builder(
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: _paginatedDevices.length,
                             itemBuilder: (context, index) {
                               final device = _paginatedDevices[index];
                               return _buildDeviceItem(device);
                             },
                           ),
-                        ),
                         if (_totalPages > 1) _buildPagination(),
                       ],
                     ),
                   ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

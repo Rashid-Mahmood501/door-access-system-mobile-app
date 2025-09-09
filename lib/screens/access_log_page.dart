@@ -184,14 +184,15 @@ class _AccessLogPageState extends State<AccessLogPage> {
           gradient: AppTheme.backgroundGradient,
         ),
         child: SingleChildScrollView(
-          // padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Header Section
               Container(
-                 padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       AppLocalizations.of(context)!.accessLog,

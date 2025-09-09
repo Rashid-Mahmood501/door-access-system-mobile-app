@@ -111,30 +111,39 @@ class _PersonnelPageState extends State<PersonnelPage> {
         imagePath: 'Assets/hkezit-logo.png',
         onLogout: null, // Add logout functionality
       ),
-      body: Column(
-        children: [
-          // Header Section
-          Container(
-            padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.personnel,
-                  style: AppTheme.heading2,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: AppTheme.backgroundGradient,
+        ),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Header Section
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.personnel,
+                      style: AppTheme.heading2,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      AppLocalizations.of(context)!.managePersonnel,
+                      style: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.mutedForeground,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  AppLocalizations.of(context)!.managePersonnel,
-                  style: AppTheme.bodyMedium.copyWith(
-                    color: AppTheme.mutedForeground,
-                  ),
-                ),
-              ],
-            ),
-          ),
+              ),
 
-          // Search Bar
+              const SizedBox(height: 16),
+
+              // Search Bar
           CustomSearchBar(
             placeholder: AppLocalizations.of(context)!.searchPersonnel,
             value: _searchController.text,
@@ -161,9 +170,8 @@ class _PersonnelPageState extends State<PersonnelPage> {
             ),
           ),
 const SizedBox(height: 8),
-          // Personnel List
-          Expanded(
-            child: _filteredPersonnel.isEmpty
+              // Personnel List
+              _filteredPersonnel.isEmpty
                 ? Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -196,21 +204,22 @@ const SizedBox(height: 8),
                             color: AppTheme.accent,
                           ),
                         ),
-                        Expanded(
-                          child: ListView.builder(
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: _paginatedPersonnel.length,
                             itemBuilder: (context, index) {
                               final personnel = _paginatedPersonnel[index];
                               return _buildPersonnelItem(personnel);
                             },
                           ),
-                        ),
                         if (_totalPages > 1) _buildPagination(),
                       ],
                     ),
                   ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

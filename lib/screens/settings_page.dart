@@ -273,14 +273,26 @@ class _SettingsPageState extends State<SettingsPage> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(0, 16, 0, 32),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Header Section
               Container(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Text(
-                  AppLocalizations.of(context)!.settings,
-                  style: AppTheme.heading2,
-                  textAlign: TextAlign.center,
+                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.settings,
+                      style: AppTheme.heading2,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      AppLocalizations.of(context)!.appSettings,
+                      style: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.mutedForeground,
+                      ),
+                    ),
+                  ],
                 ),
               ),
 

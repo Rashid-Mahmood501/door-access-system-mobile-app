@@ -121,8 +121,16 @@ class _LoginPageState extends State<LoginPage> {
                           TextFormField(
                             controller: _serverUrlController,
                             enabled: _isEditingServerUrl,
+                            style: AppTheme.bodyMedium.copyWith(
+                              color: AppTheme.foreground,
+                              fontWeight: FontWeight.w500,
+                            ),
                             decoration: InputDecoration(
                               hintText: AppLocalizations.of(context)!.enterServerUrl,
+                              hintStyle: AppTheme.bodyMedium.copyWith(
+                                color: AppTheme.mutedForeground.withOpacity(0.6),
+                                fontWeight: FontWeight.normal,
+                              ),
                               contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                               prefixIcon: const Icon(
                                 LucideIcons.server,
@@ -190,8 +198,16 @@ class _LoginPageState extends State<LoginPage> {
                       TextFormField(
                         controller: _passwordController,
                         obscureText: _obscurePassword,
+                        style: AppTheme.bodyMedium.copyWith(
+                          color: AppTheme.foreground,
+                          fontWeight: FontWeight.w500,
+                        ),
                         decoration: InputDecoration(
                           hintText: AppLocalizations.of(context)!.enterPassword,
+                          hintStyle: AppTheme.bodyMedium.copyWith(
+                            color: AppTheme.mutedForeground.withOpacity(0.6),
+                            fontWeight: FontWeight.normal,
+                          ),
                           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                           prefixIcon: const Icon(
                             LucideIcons.lock,

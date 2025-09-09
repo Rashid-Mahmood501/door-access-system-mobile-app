@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import '../l10n/generated/app_localizations.dart';
 import '../theme/app_theme.dart';
 import 'devices_page.dart';
 import 'personnel_page.dart';
@@ -25,33 +26,36 @@ class _MainNavigationState extends State<MainNavigation> {
     const SettingsPage(),
   ];
 
-  final List<NavigationItem> _navigationItems = [
-    NavigationItem(
-      icon: LucideIcons.smartphone,
-      label: 'Devices',
-      route: '/devices',
-    ),
-    NavigationItem(
-      icon: LucideIcons.users,
-      label: 'Personnel',
-      route: '/personnel',
-    ),
-    NavigationItem(
-      icon: LucideIcons.fileText,
-      label: 'Access Log',
-      route: '/access-log',
-    ),
-    NavigationItem(
-      icon: LucideIcons.hardDrive,
-      label: 'Backup',
-      route: '/backup',
-    ),
-    NavigationItem(
-      icon: LucideIcons.settings,
-      label: 'Settings',
-      route: '/settings',
-    ),
-  ];
+  List<NavigationItem> _getNavigationItems(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return [
+      NavigationItem(
+        icon: LucideIcons.smartphone,
+        label: l10n.devices,
+        route: '/devices',
+      ),
+      NavigationItem(
+        icon: LucideIcons.users,
+        label: l10n.personnel,
+        route: '/personnel',
+      ),
+      NavigationItem(
+        icon: LucideIcons.fileText,
+        label: l10n.accessLog,
+        route: '/access-log',
+      ),
+      NavigationItem(
+        icon: LucideIcons.hardDrive,
+        label: l10n.backup,
+        route: '/backup',
+      ),
+      NavigationItem(
+        icon: LucideIcons.settings,
+        label: l10n.settings,
+        route: '/settings',
+      ),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +81,7 @@ class _MainNavigationState extends State<MainNavigation> {
             fontWeight: FontWeight.w600,
           ),
           unselectedLabelStyle: AppTheme.labelMedium,
-          items: _navigationItems.map((item) {
+          items: _getNavigationItems(context).map((item) {
             return BottomNavigationBarItem(
               icon: Icon(item.icon),
               label: item.label,
